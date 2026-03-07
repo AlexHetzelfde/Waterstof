@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Scrollama Story - NOS-style</title>
+<title>Scrollama Parallax Story</title>
 <style>
   html, body {
     margin: 0;
@@ -10,20 +10,22 @@
     font-family: Arial, sans-serif;
     height: 100%;
     overflow-x: hidden;
-    transition: background 1s ease; /* fade effect voor achtergrond */
+    transition: background 1s ease; /* fade effect */
+    background-attachment: fixed;  /* achtergrond blijft vast */
+    background-size: cover;
+    background-position: center;
   }
 
   section {
-    height: 100vh; /* elk blok vult scherm */
+    min-height: 100vh; /* elk blok minstens schermhoogte */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    flex-direction: column;
     color: white;
     text-align: center;
     padding: 20px;
-    box-sizing: border-box;
+    position: relative;
   }
 
   /* Voorbeeld achtergrond kleuren per blok */
@@ -45,40 +47,48 @@
     max-width: 800px;
   }
 
+  /* Optionele overlay voor leesbaarheid bij echte afbeeldingen */
+  section::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.3); 
+    z-index: -1;
+  }
 </style>
 </head>
 <body>
 
 <section id="step1">
   <h1>Tekstblok 1: Introductie</h1>
-  <p>Hier begint het verhaal, net zoals de NOS-story. Je kan achtergrondkleuren of afbeeldingen gebruiken.</p>
+  <p>Hier begint het verhaal, met achtergrond die vast blijft terwijl je scrollt.</p>
 </section>
 
 <section id="step2">
   <h1>Tekstblok 2: Context</h1>
-  <p>Voeg hier extra context toe. Tekst staat centraal over de achtergrond.</p>
+  <p>Extra context tekst over het onderwerp.</p>
 </section>
 
 <section id="step3">
   <h1>Tekstblok 3: Interactieve visualisatie</h1>
-  <p>Hier kan een Flourish-grafiek of kaart komen.</p>
+  <p>Hier kan een Flourish-grafiek worden weergegeven.</p>
   <!-- Voorbeeld Flourish iframe: vervang your_visualisation_id door een echte -->
   <iframe src="https://flo.uri.sh/visualisation/your_visualisation_id/embed"></iframe>
 </section>
 
 <section id="step4">
   <h1>Tekstblok 4: Analyse</h1>
-  <p>Voeg analyses, extra afbeeldingen of quotes toe.</p>
+  <p>Analyse en uitleg van de gebeurtenissen.</p>
 </section>
 
 <section id="step5">
   <h1>Tekstblok 5: Gevolgen</h1>
-  <p>Schrijf hier de gevolgen of impact van het onderwerp.</p>
+  <p>Beschrijving van de impact en gevolgen.</p>
 </section>
 
 <section id="step6">
   <h1>Tekstblok 6: Conclusie</h1>
-  <p>Sluit af met een samenvatting of call-to-action.</p>
+  <p>Samenvatting en afsluiting van het verhaal.</p>
 </section>
 
 <!-- Scrollama script -->
@@ -90,7 +100,7 @@
     step: 'section',   // elk section-element is een scroll step
     offset: 0.5        // activeer bij half scherm
   })
-  .onStepEnter(({ element, index }) => {
+  .onStepEnter(({ element }) => {
     // fade achtergrond naar de achtergrond van het huidige section
     document.body.style.background = window.getComputedStyle(element).background;
   });
