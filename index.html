@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Scrollama Story – Midden-Oosten</title>
+<title>Scrollama Story – Achtergrond kleuren</title>
 <style>
   html, body {
     margin: 0;
@@ -12,16 +12,14 @@
     height: 100%;
   }
 
-  /* Achtergrond: fixed zodat hij niet mee-scrollt */
+  /* Achtergrond: fixed zodat hij niet meescrollt */
   #bg {
     position: fixed;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* achter tekst */
-    background-size: cover;
-    background-position: center;
-    transition: background 1s ease; /* fade-effect bij verandering */
+    z-index: -1; /* staat achter de tekst */
+    transition: background 1s ease; /* fade-effect */
   }
 
   section {
@@ -34,7 +32,7 @@
   }
 
   .text-block {
-    background: rgba(255,255,255,0.5); /* wit half-transparant blok */
+    background: rgba(255,255,255,0.5); /* wit half-transparant */
     padding: 30px;
     border-radius: 10px;
     max-width: 800px;
@@ -47,7 +45,7 @@
 <body>
 
 <!-- Achtergrond -->
-<div id="bg" style="background: url('images/bg1.jpg') center/cover no-repeat;"></div>
+<div id="bg" style="background: #f0f0f0;"></div>
 
 <!-- Tekstblokken -->
 <section>
@@ -91,14 +89,14 @@
 const scroller = scrollama();
 const bg = document.getElementById('bg');
 
-// Achtergronden per tekstblok
-const backgrounds = [
-  'images/bg1.jpg',
-  'images/bg2.jpg',
-  'images/bg3.jpg',
-  'images/bg4.jpg',
-  'images/bg5.jpg',
-  'images/bg6.jpg'
+// Achtergrondkleuren per tekstblok
+const colors = [
+  '#ffcccc', // lichtroze
+  '#ffe0b3', // lichtoranje
+  '#ffffb3', // lichtgeel
+  '#ccffcc', // lichtgroen
+  '#b3e0ff', // lichtblauw
+  '#d9b3ff'  // lichtpaars
 ];
 
 scroller.setup({
@@ -106,8 +104,8 @@ scroller.setup({
   offset: 0.5
 })
 .onStepEnter(({ index }) => {
-  // Wijzig de achtergrond bij het binnenkomen van een nieuw tekstblok
-  bg.style.background = `url('${backgrounds[index]}') center/cover no-repeat`;
+  // Verander de achtergrondkleur wanneer een nieuw tekstblok in beeld komt
+  bg.style.background = colors[index];
 });
 </script>
 
