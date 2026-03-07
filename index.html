@@ -26,26 +26,20 @@
   section {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    margin: 20px 0;
-    text-align: center;
-    background: rgba(255,255,255,0.5); /* witte achtergrond met 50% transparantie */
-    border-radius: 10px;
     box-sizing: border-box;
   }
 
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-
-  p {
+  .text-block {
+    background: rgba(255,255,255,0.5); /* witte achtergrond met 50% transparantie */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
     font-size: 1.2em;
     line-height: 1.6em;
-    max-width: 800px;
+    text-align: justify;
   }
 </style>
 </head>
@@ -55,34 +49,40 @@
 <div id="bg" style="background:#1f1f1f;"></div>
 
 <!-- Tekstblokken -->
-<section id="step1">
-  <h1>Verzoenende boodschap Iran</h1>
-  <p>Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen. Het is nog onduidelijk of de aanvallen daadwerkelijk worden gestaakt.</p>
+<section>
+  <div class="text-block">
+    Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen. Het is nog onduidelijk of de aanvallen daadwerkelijk worden gestaakt.
+  </div>
 </section>
 
-<section id="step2">
-  <h1>Dodental en schade Libanon</h1>
-  <p>Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden. De stad Nabi Chit raakte zwaar beschadigd, tientallen mensen raakten gewond.</p>
+<section>
+  <div class="text-block">
+    Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden. De stad Nabi Chit raakte zwaar beschadigd, tientallen mensen raakten gewond.
+  </div>
 </section>
 
-<section id="step3">
-  <h1>Evacuaties en repatriëring</h1>
-  <p>Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken. Passagiers ervaren spanning tijdens vertrek, maar zijn opgelucht na opstijgen.</p>
+<section>
+  <div class="text-block">
+    Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken. Passagiers ervaren spanning tijdens vertrek, maar zijn opgelucht na opstijgen.
+  </div>
 </section>
 
-<section id="step4">
-  <h1>Iraanse bevolking</h1>
-  <p>In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.</p>
+<section>
+  <div class="text-block">
+    In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
+  </div>
 </section>
 
-<section id="step5">
-  <h1>Veiligheid en waarschuwingen</h1>
-  <p>Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.</p>
+<section>
+  <div class="text-block">
+    Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.
+  </div>
 </section>
 
-<section id="step6">
-  <h1>Escalatie en internationale reactie</h1>
-  <p>De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders, en de situatie in het Midden-Oosten blijft onvoorspelbaar.</p>
+<section>
+  <div class="text-block">
+    De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders, en de situatie in het Midden-Oosten blijft onvoorspelbaar.
+  </div>
 </section>
 
 <script src="https://unpkg.com/scrollama"></script>
