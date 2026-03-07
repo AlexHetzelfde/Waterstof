@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Scrollama Story</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    transition: background 1s ease; /* achtergrond fade effect */
+  }
+
+  section {
+    height: 100vh; /* elk blok vult scherm */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Voorbeeld achtergrondkleuren per blok */
+  #step1 { background: #1f1f1f; }
+  #step2 { background: #2a2a70; }
+  #step3 { background: #4a2a4a; }
+  #step4 { background: #28704a; }
+  #step5 { background: #704a2a; }
+  #step6 { background: #202020; }
+
+  iframe {
+    border: none;
+    width: 80%;
+    height: 400px;
+    margin-top: 20px;
+  }
+
+</style>
+</head>
+<body>
+
+<section id="step1">Tekstblok 1: Introductie</section>
+<section id="step2">Tekstblok 2: Context</section>
+<section id="step3">
+  Tekstblok 3: Interactieve visualisatie hieronder
+  <!-- voorbeeld Flourish iframe -->
+  <iframe src="https://flo.uri.sh/visualisation/your_visualisation_id/embed"></iframe>
+</section>
+<section id="step4">Tekstblok 4: Analyse</section>
+<section id="step5">Tekstblok 5: Gevolgen</section>
+<section id="step6">Tekstblok 6: Conclusie</section>
+
+<script src="https://unpkg.com/scrollama"></script>
+<script>
+  const scroller = scrollama();
+
+  scroller.setup({
+    step: 'section',   // elk section-element is een scroll step
+    offset: 0.5        // activeer bij half scherm
+  })
+  .onStepEnter(({ element, index }) => {
+    // verander achtergrond van de body naar het huidige section
+    document.body.style.background = window.getComputedStyle(element).background;
+  });
+</script>
+
+</body>
+</html>
