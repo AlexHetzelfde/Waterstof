@@ -175,3 +175,59 @@ bg.style.backgroundImage = "none";
 
 </body>
 </html>
+
+<script>
+
+/* scroll limiter */
+
+let isScrolling = false;
+const scrollStep = 120;   // aantal pixels per scroll
+const scrollDelay = 80;   // vertraging tussen stappen
+
+window.addEventListener("wheel", function(e){
+
+e.preventDefault();
+
+if(isScrolling) return;
+
+isScrolling = true;
+
+const direction = e.deltaY > 0 ? 1 : -1;
+
+window.scrollBy({
+top: scrollStep * direction,
+behavior: "smooth"
+});
+
+setTimeout(()=>{
+isScrolling = false;
+}, scrollDelay);
+
+},{ passive:false });
+
+
+/* mobile swipe limiter */
+
+let touchStartY = 0;
+
+window.addEventListener("touchstart", e=>{
+touchStartY = e.touches[0].clientY;
+});
+
+window.addEventListener("touchmove", e=>{
+
+e.preventDefault();
+
+let touchEndY = e.touches[0].clientY;
+let diff = touchStartY - touchEndY;
+
+window.scrollBy({
+top: diff * 0.2,
+behavior:"smooth"
+});
+
+touchStartY = touchEndY;
+
+},{ passive:false });
+
+</script>
