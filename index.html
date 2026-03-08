@@ -30,10 +30,10 @@ background-repeat:no-repeat;
 transition:background-image 0.8s ease;
 }
 
-/* alle secties even lang */
+/* standaard tekst secties */
 
 section{
-min-height:200vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:flex-start;
@@ -43,6 +43,12 @@ padding-left:20px;
 padding-right:20px;
 
 box-sizing:border-box;
+}
+
+/* beeldsecties */
+
+section.image{
+min-height:150vh;
 }
 
 /* tekstblok */
@@ -70,40 +76,41 @@ text-align:justify;
 
 <div id="bg"></div>
 
-<!-- 1 foto1 + tekst 1 -->
+<!-- foto1 + tekst 1 -->
 <section>
 <div class="text-block">
 Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen.
 </div>
 </section>
 
-<!-- 2 foto2 -->
-<section></section>
+<!-- foto2 -->
+<section class="image"></section>
 
-<!-- 3 foto3 + tekst 2 -->
+<!-- foto3 + tekst 2 -->
 <section>
 <div class="text-block">
 Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden.
 </div>
 </section>
 
-<!-- 4 foto4 -->
-<section></section>
+<!-- foto4 -->
+<section class="image"></section>
 
-<!-- 5 foto5 + tekst 3 -->
+<!-- foto5 + tekst 3 -->
 <section>
 <div class="text-block">
 Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken.
 </div>
 </section>
 
-<!-- 6 foto6 -->
-<section></section>
+<!-- foto6 -->
+<section class="image"></section>
 
-<!-- 7 foto7 -->
-<section></section>
+<!-- foto7 -->
+<section class="image"></section>
 
-<!-- 8 overige tekst -->
+<!-- overige tekst -->
+
 <section>
 <div class="text-block">
 In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
@@ -112,15 +119,16 @@ In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aa
 
 <section>
 <div class="text-block">
-Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.
+Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden.
 </div>
 </section>
 
 <section>
 <div class="text-block">
-De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders.
+De Arabische Liga houdt spoedoverleg over de aanvallen. De situatie in het Midden-Oosten blijft onvoorspelbaar.
 </div>
 </section>
+
 
 <script src="https://unpkg.com/scrollama"></script>
 
@@ -131,14 +139,14 @@ const bg = document.getElementById("bg");
 
 const backgrounds = [
 
-"images/foto1.jpg", // 1
-"images/foto2.png", // 2
-"images/foto3.png", // 3
-"images/foto4.png", // 4
-"images/foto5.png", // 5
-"images/foto6.png", // 6
-"images/foto7.png", // 7
-"", // overige tekst
+"images/foto1.jpg",
+"images/foto2.png",
+"images/foto3.png",
+"images/foto4.png",
+"images/foto5.png",
+"images/foto6.png",
+"images/foto7.png",
+"",
 "",
 ""
 
@@ -157,7 +165,7 @@ const index = response.index;
 
 if(backgrounds[index]){
 bg.style.backgroundImage = `url(${backgrounds[index]})`;
-} else {
+}else{
 bg.style.backgroundImage = "none";
 }
 
