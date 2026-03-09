@@ -1,218 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Scroll Story</title>
-
+<title>Scrollama Achtergrond Kleuren</title>
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
 
-/* achtergrond */
-.bg-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: opacity 0.6s ease;
-  z-index: -2;
-}
+  /* Achtergrond div */
+  #bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* staat achter alles */
+    transition: background-color 0.8s ease; /* fade effect */
+  }
 
-#bg2 {
-  opacity: 0;
-  z-index: -1;
-}
+  section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-/* secties */
-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 20vh;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-  scroll-snap-align: start;
-  position: relative;
-}
-
-/* beeldsecties */
-section.image {
-  min-height: 140vh;
-}
-
-/* tekstblok */
-.text-block {
-  background: rgba(255,255,255,0.65);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  text-align: justify;
-  z-index: 2;
-  position: relative;
-}
-
-/* vliegtuigen */
-.plane {
-  position: fixed;
-  width: 70px;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0;
-}
-
-/* startpositie bij Iran */
-#plane1 { bottom: 22%; right: 18%; }
-#plane2 { bottom: 19%; right: 14%; }
-#plane3 { bottom: 16%; right: 10%; }
+  .text-block {
+    background: rgba(255,255,255,0.5); /* wit half-transparant */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    text-align: justify;
+  }
 </style>
 </head>
-
 <body>
 
-<div id="bg1" class="bg-layer"></div>
-<div id="bg2" class="bg-layer"></div>
+<!-- Achtergrond -->
+<div id="bg" style="background-color:#f0f0f0;"></div>
 
-<img id="plane1" class="plane" src="images/plane1.png">
-<img id="plane2" class="plane" src="images/plane2.png">
-<img id="plane3" class="plane" src="images/plane3.png">
-
-<!-- 1. Foto1 + Tekstblok1 -->
+<!-- Tekstblokken -->
 <section>
   <div class="text-block">
-    Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen.
-  </div>
-</section>
-
-<!-- 2. Foto2 -->
-<section class="image"></section>
-
-<!-- 3. Foto3 + Tekstblok2 -->
-<section>
-  <div class="text-block">
-    Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
-  </div>
-</section>
-
-<!-- 4. Foto4 -->
-<section class="image"></section>
-
-<!-- 5. Foto5 + Tekstblok3 -->
-<section>
-  <div class="text-block">
-    Nederlanders worden geëvacueerd uit Qatar en andere landen.
-  </div>
-</section>
-
-<!-- 6. Foto6 (alleen beeld) -->
-<section class="image"></section>
-
-<!-- 7. Foto7 + vliegtuigen -->
-<section class="image" id="flightScene"></section>
-
-<!-- 8+. Overige tekstblokjes -->
-<section>
-  <div class="text-block">
-    In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
+    Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen. Het is nog onduidelijk of de aanvallen daadwerkelijk worden gestaakt.
   </div>
 </section>
 
 <section>
   <div class="text-block">
-    Hezbollah roept inwoners van Noord-Israël op te evacueren.
+    Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden. De stad Nabi Chit raakte zwaar beschadigd, tientallen mensen raakten gewond.
   </div>
 </section>
 
 <section>
   <div class="text-block">
-    De Arabische Liga houdt spoedoverleg over de aanvallen.
+    Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken. Passagiers ervaren spanning tijdens vertrek, maar zijn opgelucht na opstijgen.
+  </div>
+</section>
+
+<section>
+  <div class="text-block">
+    In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
+  </div>
+</section>
+
+<section>
+  <div class="text-block">
+    Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.
+  </div>
+</section>
+
+<section>
+  <div class="text-block">
+    De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders, en de situatie in het Midden-Oosten blijft onvoorspelbaar.
   </div>
 </section>
 
 <script src="https://unpkg.com/scrollama"></script>
 <script>
 const scroller = scrollama();
-const bg1 = document.getElementById("bg1");
-const bg2 = document.getElementById("bg2");
-let activeLayer = 1;
+const bg = document.getElementById('bg');
 
-/* lineaire achtergrondvolgorde per sectie */
-const backgrounds = [
-  "images/foto1.jpg", // sectie 1
-  "images/foto2.png", // sectie 2
-  "images/foto3.png", // sectie 3
-  "images/foto4.png", // sectie 4
-  "images/foto5.png", // sectie 5
-  "images/foto6.png", // sectie 6
-  "images/foto7.jpg", // sectie 7
-  "", "", "", ""      // overige tekstsecties
-];
+// Achtergrondkleuren per tekstblok
+const colors = ['#ffcccc','#ffe0b3','#ffffb3','#ccffcc','#b3e0ff','#d9b3ff'];
 
-function changeBackground(image){
-  if(!image){
-    bg1.style.opacity = 0;
-    bg2.style.opacity = 0;
-    return;
-  }
-  if(activeLayer === 1){
-    bg2.style.backgroundImage = `url(${image})`;
-    bg2.style.opacity = 1;
-    bg1.style.opacity = 0;
-    activeLayer = 2;
-  } else {
-    bg1.style.backgroundImage = `url(${image})`;
-    bg1.style.opacity = 1;
-    bg2.style.opacity = 0;
-    activeLayer = 1;
-  }
-}
-
-/* scrollama setup */
 scroller.setup({
-  step: "section",
-  offset: 0.6
-}).onStepEnter(response => {
-  changeBackground(backgrounds[response.index]);
-});
-
-/* vliegtuig animatie voor sectie 7 */
-const plane1 = document.getElementById("plane1");
-const plane2 = document.getElementById("plane2");
-const plane3 = document.getElementById("plane3");
-const flightScene = document.getElementById("flightScene");
-
-window.addEventListener("scroll", () => {
-  const rectFlight = flightScene.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-
-  if(rectFlight.top < windowHeight && rectFlight.bottom > 0){
-    plane1.style.opacity = 1;
-    plane2.style.opacity = 1;
-    plane3.style.opacity = 1;
-  } else {
-    plane1.style.opacity = 0;
-    plane2.style.opacity = 0;
-    plane3.style.opacity = 0;
-  }
-
-  let progress = 1 - rectFlight.top / windowHeight;
-  progress = Math.max(0, Math.min(1, progress));
-
-  plane1.style.transform = `translate(${-800 * progress}px, ${-350 * progress}px) rotate(-18deg)`;
-  plane2.style.transform = `translate(${-700 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
-  plane3.style.transform = `translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
+  step: 'section',
+  offset: 0.5
+})
+.onStepEnter(({ index }) => {
+  // verander achtergrondkleur bij binnenkomen van nieuwe sectie
+  bg.style.backgroundColor = colors[index];
 });
 </script>
 
