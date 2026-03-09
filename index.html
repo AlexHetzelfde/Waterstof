@@ -6,34 +6,45 @@
 
 <style>
 
-html, body{
+html,body{
 margin:0;
 padding:0;
-height:100%;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
+
+/* voorkomt overslaan van meerdere scenes */
+scroll-snap-type:y mandatory;
+scroll-behavior:smooth;
 }
 
-/* achtergrond */
+/* achtergrond lagen */
 
-#bg{
+.bg-layer{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-1;
 
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 
-transition:background-image 0.8s ease;
+transition:opacity 0.8s ease;
+
+z-index:-2;
 }
 
-/* standaard tekst secties */
+#bg2{
+opacity:0;
+z-index:-1;
+}
+
+/* secties */
 
 section{
+
 min-height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:flex-start;
@@ -43,6 +54,9 @@ padding-left:20px;
 padding-right:20px;
 
 box-sizing:border-box;
+
+scroll-snap-align:start;
+
 }
 
 /* beeldsecties */
@@ -55,7 +69,7 @@ min-height:150vh;
 
 .text-block{
 
-background:rgba(255,255,255,0.6);
+background:rgba(255,255,255,0.65);
 
 padding:30px;
 border-radius:10px;
@@ -74,58 +88,69 @@ text-align:justify;
 
 <body>
 
-<div id="bg"></div>
 
-<!-- foto1 + tekst 1 -->
+<div id="bg1" class="bg-layer"></div>
+<div id="bg2" class="bg-layer"></div>
+
+
+<!-- foto1 + tekst1 -->
+
 <section>
 <div class="text-block">
-Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen.
+Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen.
 </div>
 </section>
 
 <!-- foto2 -->
+
 <section class="image"></section>
 
-<!-- foto3 + tekst 2 -->
+<!-- foto3 + tekst2 -->
+
 <section>
 <div class="text-block">
-Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden.
+Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
 </div>
 </section>
 
 <!-- foto4 -->
+
 <section class="image"></section>
 
-<!-- foto5 + tekst 3 -->
+<!-- foto5 + tekst3 -->
+
 <section>
 <div class="text-block">
-Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken.
+Nederlanders worden geëvacueerd uit Qatar en andere landen.
 </div>
 </section>
 
 <!-- foto6 -->
+
 <section class="image"></section>
 
 <!-- foto7 -->
+
 <section class="image"></section>
+
 
 <!-- overige tekst -->
 
 <section>
 <div class="text-block">
-In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
+In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
 </div>
 </section>
 
 <section>
 <div class="text-block">
-Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden.
+Hezbollah roept inwoners van Noord-Israël op te evacueren.
 </div>
 </section>
 
 <section>
 <div class="text-block">
-De Arabische Liga houdt spoedoverleg over de aanvallen. De situatie in het Midden-Oosten blijft onvoorspelbaar.
+De Arabische Liga houdt spoedoverleg over de aanvallen.
 </div>
 </section>
 
@@ -135,7 +160,11 @@ De Arabische Liga houdt spoedoverleg over de aanvallen. De situatie in het Midde
 <script>
 
 const scroller = scrollama();
-const bg = document.getElementById("bg");
+
+const bg1 = document.getElementById("bg1");
+const bg2 = document.getElementById("bg2");
+
+let activeLayer = 1;
 
 const backgrounds = [
 
@@ -152,10 +181,36 @@ const backgrounds = [
 
 ];
 
+
+function changeBackground(image){
+
+if(!image) return;
+
+if(activeLayer === 1){
+
+bg2.style.backgroundImage = `url(${image})`;
+bg2.style.opacity = 1;
+bg1.style.opacity = 0;
+
+activeLayer = 2;
+
+}else{
+
+bg1.style.backgroundImage = `url(${image})`;
+bg1.style.opacity = 1;
+bg2.style.opacity = 0;
+
+activeLayer = 1;
+
+}
+
+}
+
+
 scroller.setup({
 
 step:"section",
-offset:0.5
+offset:0.6
 
 })
 
@@ -163,11 +218,7 @@ offset:0.5
 
 const index = response.index;
 
-if(backgrounds[index]){
-bg.style.backgroundImage = `url(${backgrounds[index]})`;
-}else{
-bg.style.backgroundImage = "none";
-}
+changeBackground(backgrounds[index]);
 
 });
 
@@ -175,59 +226,3 @@ bg.style.backgroundImage = "none";
 
 </body>
 </html>
-
-<script>
-
-/* scroll limiter */
-
-let isScrolling = false;
-const scrollStep = 120;   // aantal pixels per scroll
-const scrollDelay = 80;   // vertraging tussen stappen
-
-window.addEventListener("wheel", function(e){
-
-e.preventDefault();
-
-if(isScrolling) return;
-
-isScrolling = true;
-
-const direction = e.deltaY > 0 ? 1 : -1;
-
-window.scrollBy({
-top: scrollStep * direction,
-behavior: "smooth"
-});
-
-setTimeout(()=>{
-isScrolling = false;
-}, scrollDelay);
-
-},{ passive:false });
-
-
-/* mobile swipe limiter */
-
-let touchStartY = 0;
-
-window.addEventListener("touchstart", e=>{
-touchStartY = e.touches[0].clientY;
-});
-
-window.addEventListener("touchmove", e=>{
-
-e.preventDefault();
-
-let touchEndY = e.touches[0].clientY;
-let diff = touchStartY - touchEndY;
-
-window.scrollBy({
-top: diff * 0.2,
-behavior:"smooth"
-});
-
-touchStartY = touchEndY;
-
-},{ passive:false });
-
-</script>
