@@ -77,7 +77,6 @@ section.image {
 #plane1 { bottom: 22%; right: 18%; }
 #plane2 { bottom: 19%; right: 14%; }
 #plane3 { bottom: 16%; right: 10%; }
-
 </style>
 </head>
 
@@ -117,7 +116,7 @@ section.image {
   </div>
 </section>
 
-<!-- Sectie 6: foto6 + tekstblokje 3 -->
+<!-- Sectie 6: foto6 + tekstblokje 3 (één keer!) -->
 <section class="image">
   <div class="text-block">
     In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
@@ -154,7 +153,7 @@ const backgrounds = [
   "images/foto3.png", // sectie 2
   "images/foto4.png", // sectie 3
   "images/foto5.png", // sectie 4
-  "images/foto6.png", // sectie 5 → foto6 + tekstblokje 3
+  "images/foto6.png", // sectie 5 → foto6 + tekstblok3
   "images/foto7.jpg", // sectie 6 → vliegtuigen
   "", "", ""          // overige tekstsecties
 ];
@@ -216,28 +215,6 @@ window.addEventListener("scroll", () => {
     `translate(${-700 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
   plane3.style.transform =
     `translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
-});
-
-/* scroll lock */
-const sections = document.querySelectorAll("section");
-let currentSection = 0;
-let scrollLocked = false;
-
-function scrollToSection(index){
-  if(index < 0 || index >= sections.length) return;
-  scrollLocked = true;
-  sections[index].scrollIntoView({ behavior: "smooth" });
-  currentSection = index;
-  setTimeout(()=>{ scrollLocked = false; }, 700);
-}
-
-window.addEventListener("wheel", (e) => {
-  if(scrollLocked) return;
-  if(e.deltaY > 0){
-    scrollToSection(currentSection + 1);
-  } else {
-    scrollToSection(currentSection - 1);
-  }
 });
 </script>
 
