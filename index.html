@@ -9,7 +9,6 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
@@ -91,53 +90,44 @@ section.image {
 <img id="plane2" class="plane" src="images/plane2.png">
 <img id="plane3" class="plane" src="images/plane3.png">
 
-<!-- 1 -->
+<!-- Sectie 1: tekstblokje 1 -->
 <section>
   <div class="text-block">
     Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen.
   </div>
 </section>
 
-<!-- 2 -->
+<!-- Sectie 2: foto2 -->
 <section class="image"></section>
 
-<!-- 3 -->
+<!-- Sectie 3: tekstblokje 2 -->
 <section>
   <div class="text-block">
     Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
   </div>
 </section>
 
-<!-- 4 -->
+<!-- Sectie 4: foto4 -->
 <section class="image"></section>
 
-<!-- 5 -->
-<section>
-  <div class="text-block">
-    Nederlanders worden geëvacueerd uit Qatar en andere landen.
-  </div>
-</section>
-
-<!-- 6 tekst + achtergrond foto6 -->
+<!-- Sectie 5: foto5 + tekstblokje 2 -->
 <section class="image">
   <div class="text-block">
     Nederlanders worden geëvacueerd uit Qatar en andere landen.
   </div>
 </section>
 
-<!-- 7 kaart + vliegtuigen -->
-<section id="mapScene" class="image"></section>
-
-<!-- 8 vliegtuigen vliegen -->
-<section id="flightScene" class="image"></section>
-
-<!-- 9 tekst zonder foto -->
-<section>
+<!-- Sectie 6: foto6 + tekstblokje 3 -->
+<section class="image">
   <div class="text-block">
     In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
   </div>
 </section>
 
+<!-- Sectie 7: foto7 + vliegtuigen -->
+<section id="flightScene" class="image"></section>
+
+<!-- Secties 8-10: tekst zonder foto -->
 <section>
   <div class="text-block">
     Hezbollah roept inwoners van Noord-Israël op te evacueren.
@@ -157,17 +147,16 @@ const bg1 = document.getElementById("bg1");
 const bg2 = document.getElementById("bg2");
 let activeLayer = 1;
 
-/* achtergrondvolgorde */
+/* achtergrondvolgorde lineair per sectie */
 const backgrounds = [
   "images/foto1.jpg", // sectie 0
   "images/foto2.png", // sectie 1
   "images/foto3.png", // sectie 2
   "images/foto4.png", // sectie 3
   "images/foto5.png", // sectie 4
-  "images/foto6.png", // sectie 5 → tekstblok met foto6
-  "images/foto7.jpg", // sectie 6 → kaart + vliegtuigen
-  "images/foto7.jpg", // sectie 7 → vliegtuigen vliegen
-  "", "", ""
+  "images/foto6.png", // sectie 5 → foto6 + tekstblokje 3
+  "images/foto7.jpg", // sectie 6 → vliegtuigen
+  "", "", ""          // overige tekstsecties
 ];
 
 function changeBackground(image){
@@ -200,16 +189,14 @@ scroller.setup({
 const plane1 = document.getElementById("plane1");
 const plane2 = document.getElementById("plane2");
 const plane3 = document.getElementById("plane3");
-const mapScene = document.getElementById("mapScene");
 const flightScene = document.getElementById("flightScene");
 
 window.addEventListener("scroll", () => {
-  const rectMap = mapScene.getBoundingClientRect();
   const rectFlight = flightScene.getBoundingClientRect();
   const windowHeight = window.innerHeight;
 
-  /* vliegtuigen zichtbaar bij kaart */
-  if(rectMap.top < windowHeight && rectFlight.bottom > 0){
+  /* vliegtuigen zichtbaar bij sectie 7 */
+  if(rectFlight.top < windowHeight && rectFlight.bottom > 0){
     plane1.style.opacity = 1;
     plane2.style.opacity = 1;
     plane3.style.opacity = 1;
@@ -219,7 +206,7 @@ window.addEventListener("scroll", () => {
     plane3.style.opacity = 0;
   }
 
-  /* animatie */
+  /* animatie vliegtuigen */
   let progress = 1 - rectFlight.top / windowHeight;
   progress = Math.max(0, Math.min(1, progress));
 
@@ -231,7 +218,7 @@ window.addEventListener("scroll", () => {
     `translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
 });
 
-/* scroll lock om te snel scrollen te voorkomen */
+/* scroll lock */
 const sections = document.querySelectorAll("section");
 let currentSection = 0;
 let scrollLocked = false;
@@ -241,7 +228,7 @@ function scrollToSection(index){
   scrollLocked = true;
   sections[index].scrollIntoView({ behavior: "smooth" });
   currentSection = index;
-  setTimeout(()=>{ scrollLocked = false; }, 700); // max 1 sectie per 0.7s
+  setTimeout(()=>{ scrollLocked = false; }, 700);
 }
 
 window.addEventListener("wheel", (e) => {
