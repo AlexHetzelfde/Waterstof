@@ -287,10 +287,10 @@ progress = Math.max(0, Math.min(1, progress));
 
 
 plane1.style.transform =
-`translate(${-600 * progress}px, ${-350 * progress}px) rotate(-18deg)`;
+`translate(${-800 * progress}px, ${-350 * progress}px) rotate(-18deg)`;
 
 plane2.style.transform =
-`translate(${-500 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
+`translate(${-700 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
 
 plane3.style.transform =
 `translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
@@ -301,3 +301,37 @@ plane3.style.transform =
 
 </body>
 </html>
+const sections = document.querySelectorAll("section");
+
+let currentSection = 0;
+let scrollLocked = false;
+
+function scrollToSection(index){
+
+if(index < 0 || index >= sections.length) return;
+
+scrollLocked = true;
+
+sections[index].scrollIntoView({
+behavior:"smooth"
+});
+
+currentSection = index;
+
+setTimeout(()=>{
+scrollLocked = false;
+},700);
+
+}
+
+window.addEventListener("wheel",(e)=>{
+
+if(scrollLocked) return;
+
+if(e.deltaY > 0){
+scrollToSection(currentSection + 1);
+}else{
+scrollToSection(currentSection - 1);
+}
+
+});
