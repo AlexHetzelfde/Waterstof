@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Scrollama Story</title>
+<title>Scroll Story</title>
 
 <style>
 
@@ -11,12 +11,11 @@ margin:0;
 padding:0;
 font-family:Arial,sans-serif;
 
-/* voorkomt overslaan van meerdere scenes */
 scroll-snap-type:y mandatory;
 scroll-behavior:smooth;
 }
 
-/* achtergrond lagen */
+/* achtergrond */
 
 .bg-layer{
 position:fixed;
@@ -62,7 +61,7 @@ scroll-snap-align:start;
 /* beeldsecties */
 
 section.image{
-min-height:150vh;
+min-height:140vh;
 }
 
 /* tekstblok */
@@ -83,6 +82,41 @@ text-align:justify;
 
 }
 
+/* vliegtuigen */
+
+.plane{
+
+position:fixed;
+
+width:70px;
+
+pointer-events:none;
+
+z-index:5;
+
+opacity:0;
+
+transition:opacity 0.6s ease;
+
+}
+
+/* startpositie (Golfregio) */
+
+#plane1{
+bottom:18%;
+right:18%;
+}
+
+#plane2{
+bottom:15%;
+right:14%;
+}
+
+#plane3{
+bottom:12%;
+right:10%;
+}
+
 </style>
 </head>
 
@@ -93,7 +127,12 @@ text-align:justify;
 <div id="bg2" class="bg-layer"></div>
 
 
-<!-- foto1 + tekst1 -->
+<img id="plane1" class="plane" src="images/plane1.png">
+<img id="plane2" class="plane" src="images/plane2.png">
+<img id="plane3" class="plane" src="images/plane3.png">
+
+
+<!-- 1 -->
 
 <section>
 <div class="text-block">
@@ -101,11 +140,11 @@ Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer a
 </div>
 </section>
 
-<!-- foto2 -->
+<!-- 2 -->
 
 <section class="image"></section>
 
-<!-- foto3 + tekst2 -->
+<!-- 3 -->
 
 <section>
 <div class="text-block">
@@ -113,11 +152,11 @@ Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
 </div>
 </section>
 
-<!-- foto4 -->
+<!-- 4 -->
 
 <section class="image"></section>
 
-<!-- foto5 + tekst3 -->
+<!-- 5 -->
 
 <section>
 <div class="text-block">
@@ -125,13 +164,17 @@ Nederlanders worden geëvacueerd uit Qatar en andere landen.
 </div>
 </section>
 
-<!-- foto6 -->
+<!-- 6 -->
 
 <section class="image"></section>
 
-<!-- foto7 -->
+<!-- 7 kaart -->
 
-<section class="image"></section>
+<section id="mapScene" class="image"></section>
+
+<!-- 8 vliegtuig animatie -->
+
+<section id="flightScene" class="image"></section>
 
 
 <!-- overige tekst -->
@@ -174,6 +217,7 @@ const backgrounds = [
 "images/foto4.png",
 "images/foto5.png",
 "images/foto6.png",
+"images/foto7.png",
 "images/foto7.png",
 "",
 "",
@@ -219,6 +263,57 @@ offset:0.6
 const index = response.index;
 
 changeBackground(backgrounds[index]);
+
+});
+
+
+/* vliegtuig animatie */
+
+const plane1 = document.getElementById("plane1");
+const plane2 = document.getElementById("plane2");
+const plane3 = document.getElementById("plane3");
+
+const flightScene = document.getElementById("flightScene");
+
+
+window.addEventListener("scroll", ()=>{
+
+const rect = flightScene.getBoundingClientRect();
+
+const windowHeight = window.innerHeight;
+
+let progress = 1 - rect.top / windowHeight;
+
+progress = Math.max(0, Math.min(1, progress));
+
+
+/* vliegtuigen zichtbaar maken */
+
+if(progress > 0){
+
+plane1.style.opacity = 1;
+plane2.style.opacity = 1;
+plane3.style.opacity = 1;
+
+}else{
+
+plane1.style.opacity = 0;
+plane2.style.opacity = 0;
+plane3.style.opacity = 0;
+
+}
+
+
+/* routes */
+
+plane1.style.transform =
+`translate(${-700 * progress}px, ${-350 * progress}px) rotate(-20deg)`;
+
+plane2.style.transform =
+`translate(${-600 * progress}px, ${-300 * progress}px) rotate(-15deg)`;
+
+plane3.style.transform =
+`translate(${-500 * progress}px, ${-280 * progress}px) rotate(-10deg)`;
 
 });
 
