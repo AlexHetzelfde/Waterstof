@@ -2,104 +2,160 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Scrollama Achtergrond Kleuren</title>
+<title>Scrollama Achtergrond Afbeeldingen</title>
+
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
 
-  /* Achtergrond div */
-  #bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* staat achter alles */
-    transition: background-color 0.8s ease; /* fade effect */
-  }
+html, body{
+margin:0;
+padding:0;
+height:100%;
+font-family:Arial, sans-serif;
+}
 
-  section {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+/* achtergrond */
 
-  .text-block {
-    background: rgba(255,255,255,0.5); /* wit half-transparant */
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    font-size: 1.2em;
-    line-height: 1.6em;
-    text-align: justify;
-  }
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+transition:background-image 0.8s ease;
+}
+
+/* standaard sectie */
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+/* langere scroll secties */
+
+.long{
+min-height:200vh;
+}
+
+/* tekstblok */
+
+.text-block{
+
+background:rgba(255,255,255,0.55);
+
+padding:30px;
+border-radius:10px;
+
+max-width:800px;
+
+font-size:1.2em;
+line-height:1.6em;
+
+text-align:justify;
+
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- Achtergrond -->
-<div id="bg" style="background-color:#f0f0f0;"></div>
+<div id="bg"></div>
 
-<!-- Tekstblokken -->
+
+<!-- SECTIE 1 (LANGER) -->
+
+<section class="long">
+<div class="text-block">
+Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen. Het is nog onduidelijk of de aanvallen daadwerkelijk worden gestaakt.
+</div>
+</section>
+
+
+<!-- FOTO 2 ZONDER TEKST (LANGER) -->
+
+<section class="long"></section>
+
+
 <section>
-  <div class="text-block">
-    Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen of raketten afvuren, tenzij Iran zelf wordt aangevallen. Het is nog onduidelijk of de aanvallen daadwerkelijk worden gestaakt.
-  </div>
+<div class="text-block">
+Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden. De stad Nabi Chit raakte zwaar beschadigd, tientallen mensen raakten gewond.
+</div>
 </section>
 
 <section>
-  <div class="text-block">
-    Bij Israëlische luchtaanvallen en commandoacties in Oost-Libanon vielen ruim 40 doden. De stad Nabi Chit raakte zwaar beschadigd, tientallen mensen raakten gewond.
-  </div>
+<div class="text-block">
+Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken. Passagiers ervaren spanning tijdens vertrek, maar zijn opgelucht na opstijgen.
+</div>
 </section>
 
 <section>
-  <div class="text-block">
-    Nederlanders worden geëvacueerd uit Qatar en andere landen; vluchten naar Rome, Parijs, Londen en Frankfurt vertrekken. Passagiers ervaren spanning tijdens vertrek, maar zijn opgelucht na opstijgen.
-  </div>
+<div class="text-block">
+In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
+</div>
 </section>
 
 <section>
-  <div class="text-block">
-    In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen. Het internet ligt grotendeels plat, waardoor direct contact moeilijk is. Mensen delen hun angst, zorgen en hoop.
-  </div>
+<div class="text-block">
+Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.
+</div>
 </section>
 
 <section>
-  <div class="text-block">
-    Hezbollah roept inwoners van Noord-Israël op te evacueren; het Israëlische leger doet soortgelijke waarschuwingen voor Libanese steden. Buitenlands personeel van oliebedrijven wordt geëvacueerd uit Irak en Koeweit.
-  </div>
+<div class="text-block">
+De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders, en de situatie in het Midden-Oosten blijft onvoorspelbaar.
+</div>
 </section>
 
-<section>
-  <div class="text-block">
-    De Arabische Liga houdt spoedoverleg over de aanvallen. De VS en Iran zijn aartsvijanden, Iran stopte voorlopig met aanvallen op buurlanden. Er worden militaire repatriëringsacties uitgevoerd voor gestrande Nederlanders, en de situatie in het Midden-Oosten blijft onvoorspelbaar.
-  </div>
-</section>
 
 <script src="https://unpkg.com/scrollama"></script>
-<script>
-const scroller = scrollama();
-const bg = document.getElementById('bg');
 
-// Achtergrondkleuren per tekstblok
-const colors = ['#ffcccc','#ffe0b3','#ffffb3','#ccffcc','#b3e0ff','#d9b3ff'];
+<script>
+
+const scroller = scrollama();
+const bg = document.getElementById("bg");
+
+const backgrounds = [
+
+"images/foto1.jpg",
+"images/foto2.png",
+"images/foto3.png",
+"",
+"",
+"",
+""
+
+];
 
 scroller.setup({
-  step: 'section',
-  offset: 0.5
+
+step:"section",
+offset:0.5
+
 })
-.onStepEnter(({ index }) => {
-  // verander achtergrondkleur bij binnenkomen van nieuwe sectie
-  bg.style.backgroundColor = colors[index];
+
+.onStepEnter(response=>{
+
+const index = response.index;
+
+if(backgrounds[index]){
+
+bg.style.backgroundImage = `url(${backgrounds[index]})`;
+
+}
+
 });
+
 </script>
 
 </body>
