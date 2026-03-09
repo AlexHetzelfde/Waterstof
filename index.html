@@ -5,123 +5,97 @@
 <title>Scroll Story</title>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 
-html,body{
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-
-scroll-snap-type:y mandatory;
-scroll-behavior:smooth;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 /* achtergrond */
-
-.bg-layer{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-transition:opacity 0.8s ease;
-
-z-index:-2;
+.bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.8s ease;
+  z-index: -2;
 }
 
-#bg2{
-opacity:0;
-z-index:-1;
+#bg2 {
+  opacity: 0;
+  z-index: -1;
 }
 
 /* secties */
-
-section{
-
-min-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:flex-start;
-
-padding-top:20vh;
-padding-left:20px;
-padding-right:20px;
-
-box-sizing:border-box;
-
-scroll-snap-align:start;
-
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
 }
 
 /* beeldsecties */
-
-section.image{
-min-height:140vh;
+section.image {
+  min-height: 140vh;
+  position: relative;
 }
 
 /* tekstblok */
-
-.text-block{
-
-background:rgba(255,255,255,0.65);
-
-padding:30px;
-border-radius:10px;
-
-max-width:800px;
-
-font-size:1.2em;
-line-height:1.6em;
-
-text-align:justify;
-
+.text-block {
+  background: rgba(255,255,255,0.65);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  text-align: justify;
+  z-index: 2;
+  position: relative;
 }
 
 /* vliegtuigen */
-
-.plane{
-
-position:fixed;
-width:70px;
-
-pointer-events:none;
-z-index:10;
-
-opacity:0;
-
+.plane {
+  position: fixed;
+  width: 70px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
 }
 
 /* startpositie bij Iran */
-
-#plane1{ bottom:22%; right:18%; }
-#plane2{ bottom:19%; right:14%; }
-#plane3{ bottom:16%; right:10%; }
+#plane1 { bottom: 22%; right: 18%; }
+#plane2 { bottom: 19%; right: 14%; }
+#plane3 { bottom: 16%; right: 10%; }
 
 </style>
 </head>
 
 <body>
 
-
 <div id="bg1" class="bg-layer"></div>
 <div id="bg2" class="bg-layer"></div>
-
 
 <img id="plane1" class="plane" src="images/plane1.png">
 <img id="plane2" class="plane" src="images/plane2.png">
 <img id="plane3" class="plane" src="images/plane3.png">
 
-
 <!-- 1 -->
 <section>
-<div class="text-block">
-Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen.
-</div>
+  <div class="text-block">
+    Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer aanvallen.
+  </div>
 </section>
 
 <!-- 2 -->
@@ -129,9 +103,9 @@ Iranische president Pezeshkian zegt dat de strijdkrachten geen buurlanden meer a
 
 <!-- 3 -->
 <section>
-<div class="text-block">
-Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
-</div>
+  <div class="text-block">
+    Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
+  </div>
 </section>
 
 <!-- 4 -->
@@ -139,13 +113,17 @@ Bij Israëlische luchtaanvallen in Oost-Libanon vielen ruim 40 doden.
 
 <!-- 5 -->
 <section>
-<div class="text-block">
-Nederlanders worden geëvacueerd uit Qatar en andere landen.
-</div>
+  <div class="text-block">
+    Nederlanders worden geëvacueerd uit Qatar en andere landen.
+  </div>
 </section>
 
-<!-- 6 -->
-<section class="image"></section>
+<!-- 6 tekst + achtergrond foto6 -->
+<section class="image">
+  <div class="text-block">
+    Nederlanders worden geëvacueerd uit Qatar en andere landen.
+  </div>
+</section>
 
 <!-- 7 kaart + vliegtuigen -->
 <section id="mapScene" class="image"></section>
@@ -155,183 +133,126 @@ Nederlanders worden geëvacueerd uit Qatar en andere landen.
 
 <!-- 9 tekst zonder foto -->
 <section>
-<div class="text-block">
-In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
-</div>
+  <div class="text-block">
+    In Iran communiceren mensen via tussenpersonen over hun ervaringen tijdens de aanvallen.
+  </div>
 </section>
 
 <section>
-<div class="text-block">
-Hezbollah roept inwoners van Noord-Israël op te evacueren.
-</div>
+  <div class="text-block">
+    Hezbollah roept inwoners van Noord-Israël op te evacueren.
+  </div>
 </section>
 
 <section>
-<div class="text-block">
-De Arabische Liga houdt spoedoverleg over de aanvallen.
-</div>
+  <div class="text-block">
+    De Arabische Liga houdt spoedoverleg over de aanvallen.
+  </div>
 </section>
-
 
 <script src="https://unpkg.com/scrollama"></script>
-
 <script>
-
 const scroller = scrollama();
-
 const bg1 = document.getElementById("bg1");
 const bg2 = document.getElementById("bg2");
-
 let activeLayer = 1;
 
-
 /* achtergrondvolgorde */
-
 const backgrounds = [
-
-"images/foto1.jpg",
-"images/foto2.png",
-"images/foto3.png",
-"images/foto4.png",
-"images/foto5.png",
-"images/foto6.png",
-"images/foto7.jpg",
-"images/foto7.jpg",
-"",
-"",
-""
-
+  "images/foto1.jpg", // sectie 0
+  "images/foto2.png", // sectie 1
+  "images/foto3.png", // sectie 2
+  "images/foto4.png", // sectie 3
+  "images/foto5.png", // sectie 4
+  "images/foto6.png", // sectie 5 → tekstblok met foto6
+  "images/foto7.jpg", // sectie 6 → kaart + vliegtuigen
+  "images/foto7.jpg", // sectie 7 → vliegtuigen vliegen
+  "", "", ""
 ];
 
-
 function changeBackground(image){
-
-if(!image){
-bg1.style.opacity = 0;
-bg2.style.opacity = 0;
-return;
+  if(!image){
+    bg1.style.opacity = 0;
+    bg2.style.opacity = 0;
+    return;
+  }
+  if(activeLayer === 1){
+    bg2.style.backgroundImage = `url(${image})`;
+    bg2.style.opacity = 1;
+    bg1.style.opacity = 0;
+    activeLayer = 2;
+  } else {
+    bg1.style.backgroundImage = `url(${image})`;
+    bg1.style.opacity = 1;
+    bg2.style.opacity = 0;
+    activeLayer = 1;
+  }
 }
-
-if(activeLayer === 1){
-
-bg2.style.backgroundImage = `url(${image})`;
-bg2.style.opacity = 1;
-bg1.style.opacity = 0;
-activeLayer = 2;
-
-}else{
-
-bg1.style.backgroundImage = `url(${image})`;
-bg1.style.opacity = 1;
-bg2.style.opacity = 0;
-activeLayer = 1;
-
-}
-
-}
-
 
 scroller.setup({
-
-step:"section",
-offset:0.6
-
-})
-
-.onStepEnter(response=>{
-
-changeBackground(backgrounds[response.index]);
-
+  step: "section",
+  offset: 0.6
+}).onStepEnter(response => {
+  changeBackground(backgrounds[response.index]);
 });
 
-
 /* vliegtuig animatie */
-
 const plane1 = document.getElementById("plane1");
 const plane2 = document.getElementById("plane2");
 const plane3 = document.getElementById("plane3");
-
 const mapScene = document.getElementById("mapScene");
 const flightScene = document.getElementById("flightScene");
 
+window.addEventListener("scroll", () => {
+  const rectMap = mapScene.getBoundingClientRect();
+  const rectFlight = flightScene.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
 
-window.addEventListener("scroll",()=>{
+  /* vliegtuigen zichtbaar bij kaart */
+  if(rectMap.top < windowHeight && rectFlight.bottom > 0){
+    plane1.style.opacity = 1;
+    plane2.style.opacity = 1;
+    plane3.style.opacity = 1;
+  } else {
+    plane1.style.opacity = 0;
+    plane2.style.opacity = 0;
+    plane3.style.opacity = 0;
+  }
 
-const rectMap = mapScene.getBoundingClientRect();
-const rectFlight = flightScene.getBoundingClientRect();
+  /* animatie */
+  let progress = 1 - rectFlight.top / windowHeight;
+  progress = Math.max(0, Math.min(1, progress));
 
-const windowHeight = window.innerHeight;
-
-
-/* vliegtuigen zichtbaar bij kaart */
-
-if(rectMap.top < windowHeight && rectFlight.bottom > 0){
-
-plane1.style.opacity = 1;
-plane2.style.opacity = 1;
-plane3.style.opacity = 1;
-
-}else{
-
-plane1.style.opacity = 0;
-plane2.style.opacity = 0;
-plane3.style.opacity = 0;
-
-}
-
-
-/* animatie */
-
-let progress = 1 - rectFlight.top / windowHeight;
-progress = Math.max(0, Math.min(1, progress));
-
-
-plane1.style.transform =
-`translate(${-800 * progress}px, ${-350 * progress}px) rotate(-18deg)`;
-
-plane2.style.transform =
-`translate(${-700 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
-
-plane3.style.transform =
-`translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
-
+  plane1.style.transform =
+    `translate(${-800 * progress}px, ${-350 * progress}px) rotate(-18deg)`;
+  plane2.style.transform =
+    `translate(${-700 * progress}px, ${-300 * progress}px) rotate(-12deg)`;
+  plane3.style.transform =
+    `translate(${-450 * progress}px, ${-260 * progress}px) rotate(-10deg)`;
 });
 
-</script>
-
-</body>
-</html>
+/* scroll lock om te snel scrollen te voorkomen */
 const sections = document.querySelectorAll("section");
-
 let currentSection = 0;
 let scrollLocked = false;
 
 function scrollToSection(index){
-
-if(index < 0 || index >= sections.length) return;
-
-scrollLocked = true;
-
-sections[index].scrollIntoView({
-behavior:"smooth"
-});
-
-currentSection = index;
-
-setTimeout(()=>{
-scrollLocked = false;
-},700);
-
+  if(index < 0 || index >= sections.length) return;
+  scrollLocked = true;
+  sections[index].scrollIntoView({ behavior: "smooth" });
+  currentSection = index;
+  setTimeout(()=>{ scrollLocked = false; }, 700); // max 1 sectie per 0.7s
 }
 
-window.addEventListener("wheel",(e)=>{
-
-if(scrollLocked) return;
-
-if(e.deltaY > 0){
-scrollToSection(currentSection + 1);
-}else{
-scrollToSection(currentSection - 1);
-}
-
+window.addEventListener("wheel", (e) => {
+  if(scrollLocked) return;
+  if(e.deltaY > 0){
+    scrollToSection(currentSection + 1);
+  } else {
+    scrollToSection(currentSection - 1);
+  }
 });
+</script>
+
+</body>
+</html>
