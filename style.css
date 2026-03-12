@@ -1,4 +1,97 @@
-/* Video styling */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+    background:black;
+}
+
+/* container */
+#container{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* BACKGROUND */
+#background-layer{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    will-change:transform;
+}
+
+.bg-panel{
+    height:100vh;
+    width:100%;
+}
+
+/* tijdelijke kleuren (later foto's) */
+.color1{background:#1abc9c;}
+.color2{background:#3498db;}
+.color3{background:#9b59b6;}
+.color4{background:#34495e;}
+.color5{background:#16a085;}
+.color6{background:#27ae60;}
+.color7{background:#2980b9;}
+.color8{background:#8e44ad;}
+.color9{background:#2c3e50;}
+.color10{background:#f39c12;}
+.color11{background:#d35400;}
+.color12{background:#c0392b;}
+.color13{background:#7f8c8d;}
+
+/* FOREGROUND */
+#text-layer{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    will-change:transform;
+}
+
+/* steps */
+.step{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    padding:5vw;
+}
+
+.left{
+    justify-content:flex-start;
+}
+
+.right{
+    justify-content:flex-end;
+}
+
+/* TEXTBOX */
+.textbox{
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.5);
+    border-radius:6px;
+    padding:20px;
+    backdrop-filter:blur(6px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:18px;
+}
+
+/* VIDEO STYLING */
+.video-bg{
+    background:#111;
+}
+
 .video-step{
     height:100vh;
     display:flex;
@@ -10,13 +103,13 @@
     display:flex;
     align-items:center;
     gap:4vw;
-    width:90vw; /* iets breder, zodat video iets naar rechts staat */
+    width:80vw;
 }
 
 .video-textbox{
     width:300px;
     height:300px;
-    background: rgba(255,255,255,0.5); /* dezelfde stijl als andere textboxen */
+    background:rgba(255,255,255,0.5);
     border-radius:6px;
     padding:20px;
     backdrop-filter:blur(6px);
@@ -24,54 +117,16 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    font-size:18px;
 }
 
 .video-container{
-    width:55vw; /* video iets groter */
+    width:50vw;
     max-width:900px;
 }
 
-/* Hover effect: laat controls zien bij hover */
 .video-container video{
     width:100%;
     height:auto;
     border-radius:8px;
     box-shadow:0 20px 40px rgba(0,0,0,0.4);
-    outline:none;
-}
-
-.interactive-video::-webkit-media-controls {
-    display: none !important; /* verberg standaard controls */
-}
-
-.interactive-video:hover {
-    outline: none;
-}
-
-.interactive-video:hover::-webkit-media-controls {
-    display: block !important; /* laat controls zien bij hover */
-}
-
-/* FLEX CONTAINER VOOR VIDEO + TEXTBOX */
-.video-layout{
-    display:flex;
-    align-items:stretch; /* laat textbox dezelfde hoogte krijgen als de video */
-    gap:4vw;
-    width:90vw; /* video iets naar rechts */
-}
-
-/* TEXTBOX */
-.video-textbox{
-    width:300px; /* vaste breedte */
-    height: auto; /* hoogte volgt de video */
-    background: rgba(255,255,255,0.5);
-    border-radius:6px;
-    padding:20px;
-    backdrop-filter:blur(6px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    font-size:18px;
 }
