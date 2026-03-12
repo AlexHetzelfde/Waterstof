@@ -1,44 +1,38 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-overflow:auto;
-background:black;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: auto; /* laat scrollen toe */
+  background: black;
 }
-
 
 /* container */
-
 #container{
-position:relative;
-width:100vw;
-height:100vh;
-overflow:hidden;
+  position: relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
 }
 
-
 /* BACKGROUND */
-
 #background-layer{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-will-change:transform;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  will-change:transform;
 }
 
 .bg-panel{
-height:100vh;
-width:100%;
+  height:100vh;
+  width:100%;
 }
 
-
 /* tijdelijke kleuren (later foto's) */
-
 .color1{background:#1abc9c;}
 .color2{background:#3498db;}
 .color3{background:#9b59b6;}
@@ -53,146 +47,84 @@ width:100%;
 .color12{background:#c0392b;}
 .color13{background:#7f8c8d;}
 
-
-
 /* FOREGROUND */
-
 #text-layer{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-will-change:transform;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  will-change:transform;
 }
 
-
 /* steps */
-
 .step{
-height:100vh;
-display:flex;
-align-items:center;
-padding:5vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding:5vw;
 }
 
 .left{
-justify-content:flex-start;
+  justify-content:flex-start;
 }
 
 .right{
-justify-content:flex-end;
+  justify-content:flex-end;
 }
-
-
 
 /* TEXTBOX */
-
 .textbox{
-
-width:300px;
-height:300px;
-
-background:rgba(255,255,255,0.5);
-
-border-radius:6px;
-
-padding:20px;
-
-backdrop-filter:blur(6px);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-text-align:center;
-
-font-size:18px;
-
+  width:300px;
+  height:300px;
+  background:rgba(255,255,255,0.5);
+  border-radius:6px;
+  padding:20px;
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:18px;
 }
 
-.video-bg{
-background:#111;
-}
-
-
-
+/* VIDEO STEP */
 .video-step{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-
-
-.video-container{
-
-width:50vw;
-max-width:900px;
-
-}
-
-
-
-.video-container video{
-
-width:100%;
-height:auto;
-
-border-radius:8px;
-
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
-
-}
-
-.video-bg{
-background:#111;
-}
-
-.video-step{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .video-container{
-width:50vw;
-max-width:900px;
+  width:50vw;
+  max-width:900px;
 }
 
 .video-container video{
-width:100%;
-height:auto;
-border-radius:8px;
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
 /* LANDING LAYER */
-#landing-layer {
-  position: relative; /* boven alles */
-  height: 100vh;
-  display: flex;
+#landing-layer{
+  position: relative; /* laat de landing scrollen */
+  height:100vh;
+  display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #111;
-  overflow: auto; /* zodat de gebruiker kan scrollen als content te groot is */
-}
-
-#landing-layer h1 {
+  background:#111;
   color: white;
-  font-size: 4rem;
-  margin-bottom: 1rem;
 }
 
-#landing-layer h2 {
-  color: #ccc;
-  font-size: 2rem;
+#landing-layer h1{
+  font-size:4rem;
+  margin-bottom:1rem;
 }
 
-/* container vastzetten totdat landing weg is */
-#container {
-  position: relative; /* stond al zo */
-  top: 0;
+#landing-layer h2{
+  font-size:2rem;
+  color:#ccc;
 }
