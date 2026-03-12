@@ -6,7 +6,7 @@ const textLayer = document.getElementById("text-layer");
 const backgroundLayer = document.getElementById("background-layer");
 
 let scrollPosition = 0;
-let maxScroll = window.innerHeight * 12;
+let maxScroll = window.innerHeight * 13;
 
 
 
