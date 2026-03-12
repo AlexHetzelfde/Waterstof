@@ -6,25 +6,44 @@
 
 body{
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto; /* laat scrollen toe */
+  overflow-y: auto;
   background: black;
 }
 
-/* container */
+/* LANDING LAYER */
+#landing-layer{
+  position: relative;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:#111;
+  color: white;
+}
+
+#landing-layer h1{
+  font-size:4rem;
+  margin-bottom:1rem;
+}
+
+#landing-layer h2{
+  font-size:2rem;
+  color:#ccc;
+}
+
+/* CONTAINER */
 #container{
   position: relative;
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
+  width: 100%;
+  overflow: visible;
 }
 
 /* BACKGROUND */
 #background-layer{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  will-change:transform;
+  position: relative;
+  width: 100%;
+  will-change: transform;
 }
 
 .bg-panel{
@@ -32,7 +51,7 @@ body{
   width:100%;
 }
 
-/* tijdelijke kleuren (later foto's) */
+/* tijdelijke kleuren */
 .color1{background:#1abc9c;}
 .color2{background:#3498db;}
 .color3{background:#9b59b6;}
@@ -47,16 +66,14 @@ body{
 .color12{background:#c0392b;}
 .color13{background:#7f8c8d;}
 
-/* FOREGROUND */
+/* TEXT LAYER */
 #text-layer{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  will-change:transform;
+  position: relative;
+  width: 100%;
+  will-change: transform;
 }
 
-/* steps */
+/* STEPS */
 .step{
   height:100vh;
   display:flex;
@@ -105,26 +122,4 @@ body{
   height:auto;
   border-radius:8px;
   box-shadow:0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* LANDING LAYER */
-#landing-layer{
-  position: relative; /* laat de landing scrollen */
-  height:100vh;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background:#111;
-  color: white;
-}
-
-#landing-layer h1{
-  font-size:4rem;
-  margin-bottom:1rem;
-}
-
-#landing-layer h2{
-  font-size:2rem;
-  color:#ccc;
 }
