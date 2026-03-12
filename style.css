@@ -190,3 +190,9 @@ box-shadow:0 20px 40px rgba(0,0,0,0.4);
   color: #ccc;
   font-size: 2rem;
 }
+
+/* container vastzetten totdat landing weg is */
+#container {
+  position: relative; /* stond al zo */
+  top: 0;
+}
