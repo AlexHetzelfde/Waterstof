@@ -49,7 +49,6 @@ body{
   width:100%;
 }
 
-/* Kleuren */
 .color1{background:#1abc9c;}
 .color2{background:#3498db;}
 .color3{background:#9b59b6;}
@@ -74,8 +73,8 @@ body{
 .step{
   height:100vh;
   display:flex;
-  align-items:center;
-  justify-content:center;
+  align-items:center;      /* verticale centrering van inhoud */
+  justify-content:center;  /* horizontale centrering van inhoud */
   position:relative;
   padding:0;
 }
@@ -95,15 +94,15 @@ body{
 .textbox{
   width:300px;
   max-width:80%;
-  height:400px;  /* rechthoekig */
+  height:400px;
   background: rgba(255,255,255,0.5);
   border-radius:6px;
   padding:20px;
   backdrop-filter: blur(6px);
   display:flex;
   flex-direction: column;
-  justify-content: center; /* verticaal in midden van textbox */
-  align-items: center;     /* horizontaal in midden van textbox */
+  justify-content:center;
+  align-items:center;
   text-align:center;
   font-size:18px;
 }
