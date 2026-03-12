@@ -52,3 +52,26 @@
 .interactive-video:hover::-webkit-media-controls {
     display: block !important; /* laat controls zien bij hover */
 }
+
+/* FLEX CONTAINER VOOR VIDEO + TEXTBOX */
+.video-layout{
+    display:flex;
+    align-items:stretch; /* laat textbox dezelfde hoogte krijgen als de video */
+    gap:4vw;
+    width:90vw; /* video iets naar rechts */
+}
+
+/* TEXTBOX */
+.video-textbox{
+    width:300px; /* vaste breedte */
+    height: auto; /* hoogte volgt de video */
+    background: rgba(255,255,255,0.5);
+    border-radius:6px;
+    padding:20px;
+    backdrop-filter:blur(6px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:18px;
+}
