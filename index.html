@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="style.css">
 <script src="https://unpkg.com/scrollama"></script>
 </head>
-
 <body>
 
 <!-- INTRO GORDIJN -->
@@ -18,70 +17,30 @@
   </div>
 </div>
 
-<!-- STORY CONTAINER -->
-<div id="container">
+<!-- VASTE ACHTERGRONDEN -->
+<div id="backgrounds">
+  <div class="bg-slide active" style="background: #a30f14;"></div>
+  <div class="bg-slide" style="background: #440808;"></div>
+  <div class="bg-slide" style="background: #1a3a5c;"></div>
+</div>
 
-    <!-- BLOK 1 -->
-    <div class="step left">
-        <div class="bg-panel color1"></div>
-        <div class="textbox">
-            Groene waterstof wordt gemaakt door water (H₂O) te splitsen in waterstof en zuurstof. Dit gebeurt met behulp van een proces dat elektrolyse heet.
-        </div>
-    </div>
+<!-- SCROLLBARE CONTENT -->
+<div id="story">
 
-    <!-- BLOK 2 -->
-    <div class="step right">
-        <div class="bg-panel color2"></div>
-        <div class="textbox">
-            Bij elektrolyse wordt water in een apparaat, een elektrolyser, geleid. Daarin lopen elektrische stroom en een speciale membraan door het water.
-        </div>
-    </div>
+  <section class="scene" data-index="0">
+    <div class="textbox">dit is een test</div>
+  </section>
 
-    <!-- BLOK 3 -->
-    <div class="step left">
-        <div class="bg-panel color3"></div>
-        <div class="textbox">
-            De elektriciteit die hiervoor wordt gebruikt, komt bij groene waterstof uit hernieuwbare bronnen. Denk aan windenergie, zonne-energie of waterkracht.
-        </div>
-    </div>
+  <section class="scene" data-index="1">
+    <div class="textbox">dit is een test</div>
+  </section>
 
-    <!-- BLOK 4 -->
-    <div class="step right">
-        <div class="bg-panel color4"></div>
-        <div class="textbox">
-            Door de elektrische stroom worden watermoleculen gesplitst in waterstofgas (H₂) en zuurstofgas (O₂). De zuurstof komt meestal als bijproduct vrij in de lucht.
-        </div>
-    </div>
-
-    <!-- VIDEO STEP -->
-    <div class="step video-step">
-        <div class="bg-panel video-bg"></div>
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="video/waterstof.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-    <!-- BLOK 5 -->
-    <div class="step left">
-        <div class="bg-panel color5"></div>
-        <div class="textbox">
-            De waterstof wordt vervolgens opgevangen, gezuiverd en opgeslagen. Dit kan in tanks of onder hoge druk voor later gebruik.
-        </div>
-    </div>
-
-    <!-- BLOK 6 -->
-    <div class="step right">
-        <div class="bg-panel color6"></div>
-        <div class="textbox">
-            Omdat er geen fossiele brandstoffen worden gebruikt en alleen hernieuwbare energie, wordt dit proces "groen" genoemd. Daardoor is het veel beter voor het klimaat dan traditionele waterstofproductie.
-        </div>
-    </div>
+  <section class="scene" data-index="2">
+    <div class="textbox">dit is een test</div>
+  </section>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
