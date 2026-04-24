@@ -2,6 +2,26 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const landing = document.getElementById("landing-layer");
+
+  /* zwart gordijn omhoog scrollen */
+  window.addEventListener("scroll", () => {
+
+    const scrollY = window.scrollY;
+    const progress = Math.min(scrollY / window.innerHeight, 1);
+
+    landing.style.transform = `translateY(-${progress * 100}vh)`;
+    landing.style.opacity = 1 - progress;
+
+    if(progress >= 1){
+      landing.style.pointerEvents = "none";
+    } else {
+      landing.style.pointerEvents = "auto";
+    }
+
+  });
+
+  /* scrollama */
   const scroller = scrollama();
 
   scroller
@@ -12,15 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     .onStepEnter((response) => {
 
-      // alle steps resetten
       document.querySelectorAll(".step").forEach(step => {
         step.classList.remove("active");
       });
 
-      // huidige step activeren
       response.element.classList.add("active");
 
-      console.log("Step:", response.index);
     });
 
   window.addEventListener("resize", scroller.resize);
