@@ -1,45 +1,77 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const landing = document.getElementById("landing-layer");
 
-  /* zwart gordijn omhoog scrollen */
+  let unlocked = false;
+  let scrollamaStarted = false;
+
+  const vh = window.innerHeight;
+
+  // =========================
+  // GORDIJN SCROLL LOGICA
+  // =========================
+
   window.addEventListener("scroll", () => {
 
     const scrollY = window.scrollY;
-    const progress = Math.min(scrollY / window.innerHeight, 1);
 
-    landing.style.transform = `translateY(-${progress * 100}vh)`;
-    landing.style.opacity = 1 - progress;
+    // FASE 1: INTRO (gordijn actief)
+    if (scrollY < vh) {
 
-    if(progress >= 1){
-      landing.style.pointerEvents = "none";
-    } else {
-      landing.style.pointerEvents = "auto";
+      const progress = scrollY / vh;
+
+      // zwart scherm beweegt omhoog (GEEN fade)
+      landing.style.transform = `translateY(-${progress * 100}vh)`;
+
+      // lock effect (voelt als “niet echt door kunnen scrollen”)
+      document.body.style.overflow = "hidden";
+
+    }
+
+    // FASE 2: UNLOCK
+    if (scrollY >= vh && !unlocked) {
+
+      unlocked = true;
+
+      // forceer gordijn volledig weg
+      landing.style.transform = "translateY(-100vh)";
+
+      // scroll weer vrijgeven
+      document.body.style.overflow = "auto";
+
+      // start scrollama pas hier
+      startScrollama();
     }
 
   });
 
-  /* scrollama */
-  const scroller = scrollama();
+  // =========================
+  // SCROLLAMA INIT
+  // =========================
 
-  scroller
-    .setup({
-      step: ".step",
-      offset: 0.5
-    })
+  function startScrollama() {
 
-    .onStepEnter((response) => {
+    if (scrollamaStarted) return;
+    scrollamaStarted = true;
 
-      document.querySelectorAll(".step").forEach(step => {
-        step.classList.remove("active");
+    const scroller = scrollama();
+
+    scroller
+      .setup({
+        step: ".step",
+        offset: 0.5
+      })
+      .onStepEnter((response) => {
+
+        document.querySelectorAll(".step").forEach(step => {
+          step.classList.remove("active");
+        });
+
+        response.element.classList.add("active");
+
       });
 
-      response.element.classList.add("active");
-
-    });
-
-  window.addEventListener("resize", scroller.resize);
+    window.addEventListener("resize", scroller.resize);
+  }
 
 });
