@@ -12,16 +12,23 @@ body{
   overflow-y:auto;
 }
 
-/* LANDING PAGE */
+/* ZWART GORDIJN */
 #landing-layer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
   height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
   background:#111;
   color:white;
+  z-index:9999;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
   text-align:center;
+
+  will-change:transform, opacity;
 }
 
 #landing-layer h1{
@@ -34,13 +41,12 @@ body{
   color:#ccc;
 }
 
-/* CONTAINER */
+/* STORY */
 #container{
   position:relative;
   width:100%;
 }
 
-/* STORY STEPS */
 .step{
   position:relative;
   height:100vh;
@@ -58,7 +64,6 @@ body{
   justify-content:flex-end;
 }
 
-/* Achtergrond per stap */
 .bg-panel{
   position:absolute;
   top:0;
@@ -83,7 +88,7 @@ body{
 .color13{background:#7f8c8d;}
 .video-bg{background:#111;}
 
-/* Textbox */
+/* TEXTBOX */
 .textbox{
   position:relative;
   z-index:1;
@@ -95,35 +100,30 @@ body{
   border-radius:6px;
 
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
   font-size:18px;
 
-  /* start verborgen */
   opacity:0;
   transform:translateY(30px);
-
-  /* achtergrond begint transparant */
   background:rgba(255,255,255,0);
 
   backdrop-filter:blur(6px);
 
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease,
-    background 0.7s ease;
+    opacity .7s ease,
+    transform .7s ease,
+    background .7s ease;
 }
 
-/* actief step = fade in */
 .step.active .textbox{
   opacity:1;
   transform:translateY(0);
   background:rgba(255,255,255,0.5);
 }
 
-/* VIDEO STEP */
+/* VIDEO */
 .video-step .video-container{
   position:relative;
   z-index:1;
