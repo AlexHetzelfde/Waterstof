@@ -1,49 +1,40 @@
 /* =========================
    RESET
 ========================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
-  background:black;
-  overflow-x:hidden;
+  background: black;
+  overflow-x: hidden;
 }
 
 /* =========================
    INTRO GORDIJN
 ========================= */
-
-#landing-layer{
+#landing-layer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-
   background: #111;
   color: white;
-
   z-index: 9999;
-
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-
   will-change: transform;
 }
-
-#landing-layer h1{
+#landing-layer h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
 }
-
-#landing-layer h2{
+#landing-layer h2 {
   font-size: 2rem;
   color: #ccc;
 }
@@ -51,8 +42,7 @@ body{
 /* =========================
    STORY CONTAINER
 ========================= */
-
-#container{
+#container {
   position: relative;
   width: 100%;
 }
@@ -60,8 +50,7 @@ body{
 /* =========================
    STEPS
 ========================= */
-
-.step{
+.step {
   position: relative;
   height: 100vh;
   display: flex;
@@ -69,77 +58,53 @@ body{
   justify-content: center;
   padding: 0 5vw;
 }
-
-/* links / rechts layout */
-.step.left{
+.step.left {
   justify-content: flex-start;
 }
-
-.step.right{
+.step.right {
   justify-content: flex-end;
 }
 
 /* =========================
    BACKGROUNDS
 ========================= */
-
-.bg-panel{
+.bg-panel {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-
-.color1{background:#1abc9c;}
-.color2{background:#3498db;}
-.color3{background:#9b59b6;}
-.color4{background:#34495e;}
-.color5{background:#16a085;}
-.color6{background:#27ae60;}
-.color7{background:#2980b9;}
-.color8{background:#8e44ad;}
-.color9{background:#2c3e50;}
-.color10{background:#f39c12;}
-.color11{background:#d35400;}
-.color12{background:#c0392b;}
-.color13{background:#7f8c8d;}
-.video-bg{background:#111;}
+.color1 { background: #a30f14; }
+.color2 { background: #440808; }
+.color3 { background: #a30f14; }
+.color4 { background: #440808; }
+.color5 { background: #a30f14; }
+.color6 { background: #440808; }
+.video-bg { background: #111; }
 
 /* =========================
-   TEXTBOX (FADE EFFECT)
+   TEXTBOX
 ========================= */
-
-.textbox{
+.textbox {
   position: relative;
   z-index: 2;
-
   width: 320px;
   max-width: 80%;
   min-height: 260px;
-
   padding: 20px;
   border-radius: 6px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
   font-size: 18px;
   line-height: 1.5;
-
-  /* start state */
   opacity: 0;
   transform: translateY(30px);
-
   background: rgba(255,255,255,0);
-
   backdrop-filter: blur(6px);
-
   transition: all 0.7s ease;
 }
-
-/* active state (Scrollama) */
-.step.active .textbox{
+.step.active .textbox {
   opacity: 1;
   transform: translateY(0);
   background: rgba(255,255,255,0.5);
@@ -148,15 +113,13 @@ body{
 /* =========================
    VIDEO
 ========================= */
-
-.video-step .video-container{
+.video-step .video-container {
   position: relative;
   z-index: 1;
   width: 50vw;
   max-width: 900px;
 }
-
-.video-container video{
+.video-container video {
   width: 100%;
   height: auto;
   border-radius: 8px;
