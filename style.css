@@ -39,6 +39,27 @@ body {
 }
 
 /* =========================
+   JAARTAL
+========================= */
+#year-display {
+  position: fixed;
+  top: 40px;
+  left: 50px;
+  z-index: 100;
+  font-size: 6rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: Arial, Helvetica, sans-serif;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  letter-spacing: -2px;
+}
+#year-display.visible {
+  opacity: 1;
+}
+
+/* =========================
    VASTE ACHTERGRONDEN
 ========================= */
 #backgrounds {
@@ -69,6 +90,9 @@ body {
   align-items: center;
   justify-content: flex-end;
   padding: 60px 5vw;
+}
+.scene.right {
+  justify-content: flex-start;
 }
 
 /* =========================
