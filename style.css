@@ -1,3 +1,5 @@
+/* style.css */
+
 *{
   margin:0;
   padding:0;
@@ -88,16 +90,37 @@ body{
   width:300px;
   max-width:80%;
   height:400px;
-  background: rgba(255,255,255,0.5);
-  border-radius:6px;
+
   padding:20px;
-  backdrop-filter: blur(6px);
+  border-radius:6px;
+
   display:flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
   font-size:18px;
+
+  /* start verborgen */
+  opacity:0;
+  transform:translateY(30px);
+
+  /* achtergrond begint transparant */
+  background:rgba(255,255,255,0);
+
+  backdrop-filter:blur(6px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    background 0.7s ease;
+}
+
+/* actief step = fade in */
+.step.active .textbox{
+  opacity:1;
+  transform:translateY(0);
+  background:rgba(255,255,255,0.5);
 }
 
 /* VIDEO STEP */
