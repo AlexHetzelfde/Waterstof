@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (activeScene) {
         const sceneTop = activeScene.offsetTop;
         const relativeScroll = scrollTop - sceneTop;
-        activeSlide.style.backgroundPositionY = `calc(50% + ${relativeScroll * 0.1}px)`;
+        activeSlide.style.backgroundPositionY = `calc(50% + ${relativeScroll * 0.03}px)`;
       }
     }
   });
