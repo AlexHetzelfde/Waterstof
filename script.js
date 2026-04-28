@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const landing = document.getElementById("landing-layer");
   const bgSlides = document.querySelectorAll(".bg-slide");
-  const yearDisplay = document.getElementById("year-display");
   const navDotsContainer = document.getElementById("nav-dots");
   const progressBar = document.getElementById("progress-bar");
   const infoScenes = document.querySelectorAll(".scene[data-type='info']");
@@ -42,32 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (progress >= 1 && locked) {
       locked = false;
       document.body.style.overflow = "auto";
-      yearDisplay.classList.add("visible");
       navDotsContainer.classList.add("visible");
     }
     if (progress < 1 && !locked) {
       locked = true;
       document.body.style.overflow = "hidden";
-      yearDisplay.classList.remove("visible");
       navDotsContainer.classList.remove("visible");
     }
   }
 
-  // === PROGRESS BAR + PARALLAX ===
+  // === PROGRESS BAR ===
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = ((scrollTop / docHeight) * 100) + "%";
-
-    const activeSlide = document.querySelector(".bg-slide.active");
-    if (activeSlide && activeSlide.style.backgroundImage) {
-      const activeScene = document.querySelector(".scene.visible-bg");
-      if (activeScene) {
-        const sceneTop = activeScene.offsetTop;
-        const relativeScroll = scrollTop - sceneTop;
-        activeSlide.style.backgroundPositionY = `calc(50% + ${relativeScroll * 0.03}px)`;
-      }
-    }
   });
 
   // === KEYBOARD ===
@@ -80,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (e.key === "ArrowDown" || e.key === "PageDown") {
-      // Scroll naar volgende scene
       const currentScroll = window.scrollY;
       for (let i = 0; i < allScenes.length; i++) {
         if (allScenes[i].offsetTop > currentScroll + 10) {
@@ -95,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setProgress(progress - 0.15);
         return;
       }
-      // Scroll naar vorige scene
       const currentScroll = window.scrollY;
       for (let i = allScenes.length - 1; i >= 0; i--) {
         if (allScenes[i].offsetTop < currentScroll - 10) {
@@ -148,29 +133,17 @@ document.addEventListener("DOMContentLoaded", () => {
         setBackground(index);
         updateNavDots(index);
         element.querySelector(".textbox").classList.add("visible");
-        document.querySelectorAll(".scene").forEach(s => s.classList.remove("visible-bg"));
-        element.classList.add("visible-bg");
-      } else if (element.dataset.type === "quote") {
-        element.querySelector(".quote-box").classList.add("visible");
-      } else if (element.dataset.type === "bronnen") {
-        element.querySelector(".bronnen-box").classList.add("visible");
+      } else if (element.dataset.type === "einde") {
+        setBackground(bgSlides.length - 1);
+        element.querySelector(".einde-box").classList.add("visible");
       }
     })
     .onStepExit(({ element }) => {
       if (element.dataset.type === "info") {
         element.querySelector(".textbox").classList.remove("visible");
-      } else if (element.dataset.type === "quote") {
-        element.querySelector(".quote-box").classList.remove("visible");
-      } else if (element.dataset.type === "bronnen") {
-        element.querySelector(".bronnen-box").classList.remove("visible");
+      } else if (element.dataset.type === "einde") {
+        element.querySelector(".einde-box").classList.remove("visible");
       }
-    })
-    .onStepProgress(({ element, progress }) => {
-      if (element.dataset.type === "bronnen") return;
-      const yearStart = parseInt(element.dataset.year);
-      const next = element.nextElementSibling;
-      const yearEnd = next && next.dataset.year ? parseInt(next.dataset.year) : yearStart;
-      yearDisplay.textContent = Math.round(yearStart + (yearEnd - yearStart) * progress);
     });
 
   window.addEventListener("resize", scroller.resize);
