@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navDotsContainer = document.getElementById("nav-dots");
   const progressBar = document.getElementById("progress-bar");
   const infoScenes = document.querySelectorAll(".scene[data-type='info']");
+  const allScenes = document.querySelectorAll(".scene");
 
   let progress = 0;
   let locked = true;
@@ -69,6 +70,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // === KEYBOARD ===
+  window.addEventListener("keydown", (e) => {
+    if (locked) {
+      if (e.key === "ArrowDown" || e.key === "PageDown") {
+        setProgress(progress + 0.15);
+      }
+      return;
+    }
+
+    if (e.key === "ArrowDown" || e.key === "PageDown") {
+      // Scroll naar volgende scene
+      const currentScroll = window.scrollY;
+      for (let i = 0; i < allScenes.length; i++) {
+        if (allScenes[i].offsetTop > currentScroll + 10) {
+          allScenes[i].scrollIntoView({ behavior: "smooth" });
+          break;
+        }
+      }
+    }
+
+    if (e.key === "ArrowUp" || e.key === "PageUp") {
+      if (window.scrollY === 0) {
+        setProgress(progress - 0.15);
+        return;
+      }
+      // Scroll naar vorige scene
+      const currentScroll = window.scrollY;
+      for (let i = allScenes.length - 1; i >= 0; i--) {
+        if (allScenes[i].offsetTop < currentScroll - 10) {
+          allScenes[i].scrollIntoView({ behavior: "smooth" });
+          break;
+        }
+      }
+    }
+  });
+
   // === WHEEL ===
   window.addEventListener("wheel", (e) => {
     if (locked) {
@@ -111,25 +148,28 @@ document.addEventListener("DOMContentLoaded", () => {
         setBackground(index);
         updateNavDots(index);
         element.querySelector(".textbox").classList.add("visible");
-
-        // Markeer actieve scene voor parallax
         document.querySelectorAll(".scene").forEach(s => s.classList.remove("visible-bg"));
         element.classList.add("visible-bg");
-      } else {
+      } else if (element.dataset.type === "quote") {
         element.querySelector(".quote-box").classList.add("visible");
+      } else if (element.dataset.type === "bronnen") {
+        element.querySelector(".bronnen-box").classList.add("visible");
       }
     })
     .onStepExit(({ element }) => {
       if (element.dataset.type === "info") {
         element.querySelector(".textbox").classList.remove("visible");
-      } else {
+      } else if (element.dataset.type === "quote") {
         element.querySelector(".quote-box").classList.remove("visible");
+      } else if (element.dataset.type === "bronnen") {
+        element.querySelector(".bronnen-box").classList.remove("visible");
       }
     })
     .onStepProgress(({ element, progress }) => {
+      if (element.dataset.type === "bronnen") return;
       const yearStart = parseInt(element.dataset.year);
       const next = element.nextElementSibling;
-      const yearEnd = next ? parseInt(next.dataset.year) : yearStart;
+      const yearEnd = next && next.dataset.year ? parseInt(next.dataset.year) : yearStart;
       yearDisplay.textContent = Math.round(yearStart + (yearEnd - yearStart) * progress);
     });
 
