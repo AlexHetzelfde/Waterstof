@@ -27,14 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === ACHTERGROND (instant, geen transitie) ===
+  // === ACHTERGROND (met zachte transitie) ===
   function setBackground(index) {
-    bgSlides.forEach(slide => slide.style.transition = "none");
     bgSlides.forEach((slide, i) => {
       slide.classList.toggle("active", i === index);
-    });
-    requestAnimationFrame(() => {
-      bgSlides.forEach(slide => slide.style.transition = "");
     });
   }
 
@@ -105,31 +101,22 @@ document.addEventListener("DOMContentLoaded", () => {
       progress: true
     })
     .onStepEnter(({ element }) => {
-      if (element.dataset.type === "quote") {
-        // Zwart scherm is nu zichtbaar — wissel achtergrond onzichtbaar
-        const nextInfo = element.nextElementSibling;
-        if (nextInfo && nextInfo.dataset.type === "info") {
-          setBackground(parseInt(nextInfo.dataset.index));
-          updateNavDots(parseInt(nextInfo.dataset.index));
-        }
-        element.querySelector(".quote-box").classList.add("visible");
-      } else {
+      if (element.dataset.type === "info") {
+        // Achtergrond wisselt alleen hier — bij nieuw infoboxje
+        const index = parseInt(element.dataset.index);
+        setBackground(index);
+        updateNavDots(index);
         element.querySelector(".textbox").classList.add("visible");
+      } else {
+        // Quote verschijnt op dezelfde achtergrond, geen wissel
+        element.querySelector(".quote-box").classList.add("visible");
       }
     })
-    .onStepExit(({ element, direction }) => {
-      if (element.dataset.type === "quote") {
-        // Terugscrollend: herstel vorige achtergrond onder het zwarte scherm
-        if (direction === "up") {
-          const prevInfo = element.previousElementSibling;
-          if (prevInfo && prevInfo.dataset.type === "info") {
-            setBackground(parseInt(prevInfo.dataset.index));
-            updateNavDots(parseInt(prevInfo.dataset.index));
-          }
-        }
-        element.querySelector(".quote-box").classList.remove("visible");
-      } else {
+    .onStepExit(({ element }) => {
+      if (element.dataset.type === "info") {
         element.querySelector(".textbox").classList.remove("visible");
+      } else {
+        element.querySelector(".quote-box").classList.remove("visible");
       }
     })
     .onStepProgress(({ element, progress }) => {
