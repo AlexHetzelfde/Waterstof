@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === ACHTERGROND (met zachte transitie) ===
+  // === ACHTERGROND ===
   function setBackground(index) {
     bgSlides.forEach((slide, i) => {
       slide.classList.toggle("active", i === index);
@@ -60,7 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const activeSlide = document.querySelector(".bg-slide.active");
     if (activeSlide && activeSlide.style.backgroundImage) {
-      activeSlide.style.backgroundPositionY = `calc(50% - ${scrollTop * 0.15}px)`;
+      const activeScene = document.querySelector(".scene.visible-bg");
+      if (activeScene) {
+        const sceneTop = activeScene.offsetTop;
+        const relativeScroll = scrollTop - sceneTop;
+        activeSlide.style.backgroundPositionY = `calc(50% + ${relativeScroll * 0.1}px)`;
+      }
     }
   });
 
@@ -102,13 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .onStepEnter(({ element }) => {
       if (element.dataset.type === "info") {
-        // Achtergrond wisselt alleen hier — bij nieuw infoboxje
         const index = parseInt(element.dataset.index);
         setBackground(index);
         updateNavDots(index);
         element.querySelector(".textbox").classList.add("visible");
+
+        // Markeer actieve scene voor parallax
+        document.querySelectorAll(".scene").forEach(s => s.classList.remove("visible-bg"));
+        element.classList.add("visible-bg");
       } else {
-        // Quote verschijnt op dezelfde achtergrond, geen wissel
         element.querySelector(".quote-box").classList.add("visible");
       }
     })
