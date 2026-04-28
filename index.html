@@ -23,37 +23,37 @@
 <div id="backgrounds">
   <!-- 0: intro -->
   <div class="bg-slide active" style="background: #0a0a0a;"></div>
-  <!-- 1: windmolens -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto1.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 2: elektrolyse machine -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto2.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 3: infographic — vervang kleur zodra je Foto/Infographic.jpg uploadt -->
-  <div class="bg-slide" style="background: #0d1f2d;"></div>
-  <!-- 4: PEM machine -->
+  <!-- 1: tekst 1 -->
   <div class="bg-slide" style="background-image: url('Foto/Foto3.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 5: video scene donker -->
+  <!-- 2: tekst 2 windmolens -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto2.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 3: infographic -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto1.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 4: PEM machine — foto nog niet aangeleverd -->
+  <div class="bg-slide" style="background: #0d1f2d;"></div>
+  <!-- 5: video scene -->
   <div class="bg-slide" style="background: #0a1520;"></div>
-  <!-- 6: opslag waterstof -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto4.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 7: transport -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto5.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 8: eindgebruik -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto6.jpg'); background-size: cover; background-position: center;"></div>
-  <!-- 9: efficiëntie -->
-  <div class="bg-slide" style="background-image: url('Foto/Foto7.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 6: opslag — foto nog niet aangeleverd -->
+  <div class="bg-slide" style="background: #003049;"></div>
+  <!-- 7: transport — foto nog niet aangeleverd -->
+  <div class="bg-slide" style="background: #1b4332;"></div>
+  <!-- 8: eindgebruik — foto nog niet aangeleverd -->
+  <div class="bg-slide" style="background: #0d1b2a;"></div>
+  <!-- 9: efficiëntie — foto nog niet aangeleverd -->
+  <div class="bg-slide" style="background: #1a1a2e;"></div>
   <!-- 10: einde -->
   <div class="bg-slide" style="background: #111;"></div>
 </div>
 
 <div id="story">
 
-  <section class="scene" data-type="info" data-index="0" data-bg="0">
+  <section class="scene" data-type="info" data-index="0" data-bg="1">
     <div class="textbox">
       Groene waterstof is waterstof dat volledig klimaatneutraal wordt geproduceerd. De naam "groen" verwijst niet naar de kleur, maar naar de herkomst van de energie: uitsluitend zon, wind of andere duurzame bronnen. Het is daarmee de schoonste vorm van waterstof die bestaat.
     </div>
   </section>
 
-  <section class="scene right" data-type="info" data-index="1" data-bg="1">
+  <section class="scene right" data-type="info" data-index="1" data-bg="2">
     <div class="textbox">
       Alles begint bij hernieuwbare elektriciteit. Zonnepanelen en windturbines wekken stroom op zonder CO₂-uitstoot. Die stroom is de enige brandstof die nodig is voor het productieproces. Hoe groener het elektriciteitsnet, hoe groener de waterstof die eruit voortkomt.
     </div>
@@ -66,11 +66,9 @@
   </section>
 
   <!-- TUSSENSLIDE: infographic elektrolyse -->
-  <!-- Achtergrond: voeg toe als bg-slide index 3, bv. url('Foto/Infographic.jpg') -->
   <section class="scene" data-type="infographic" data-bg="3">
     <div class="infographic-label">
       <span>Infographic: zo werkt elektrolyse</span>
-      <p class="infographic-placeholder">[ upload Foto/Infographic.jpg als achtergrond van bg-slide index 3 ]</p>
     </div>
   </section>
 
@@ -80,14 +78,12 @@
     </div>
   </section>
 
-  <!-- VIDEO SCENE — video vaagt in naarmate gebruiker scrollt -->
-  <!-- Upload video als Video/elektrolyse.mp4 -->
+  <!-- VIDEO SCENE -->
   <section class="scene has-video" data-type="info" data-index="4" data-bg="5">
     <div class="video-container">
       <video muted loop playsinline>
-        <source src="Video/elektrolyse.mp4" type="video/mp4">
+        <source src="Video/Video1.mp4" type="video/mp4">
       </video>
-      <div class="video-placeholder">[ upload Video/elektrolyse.mp4 ]</div>
     </div>
     <div class="textbox">
       Aan de <span class="begrip" data-begrip="minpool">minpool</span> van de elektrolyser — de kathode — komen de waterstofmoleculen vrij als gas: H₂. Aan de <span class="begrip" data-begrip="pluspool">pluspool</span> — de anode — ontstaat zuurstof: O₂. De twee gassen worden direct gescheiden gehouden door een membraan of <span class="begrip" data-begrip="diafragma">diafragma</span>. Het zuurstof wordt geloosd of hergebruikt; het waterstof gaat verder de keten in.
