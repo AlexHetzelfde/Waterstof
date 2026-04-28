@@ -21,75 +21,104 @@
 <div id="nav-dots"></div>
 
 <div id="backgrounds">
+  <!-- 0: intro -->
   <div class="bg-slide active" style="background: #0a0a0a;"></div>
-  <div class="bg-slide" style="background: #1a3a5c;"></div>
-  <div class="bg-slide" style="background: #2d6a4f;"></div>
-  <div class="bg-slide" style="background: #4a1942;"></div>
-  <div class="bg-slide" style="background: #7b3f00;"></div>
-  <div class="bg-slide" style="background: #003049;"></div>
-  <div class="bg-slide" style="background: #1b4332;"></div>
-  <div class="bg-slide" style="background: #3d0c02;"></div>
-  <div class="bg-slide" style="background: #0d1b2a;"></div>
+  <!-- 1: windmolens -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto1.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 2: elektrolyse machine -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto2.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 3: infographic — vervang kleur zodra je Foto/Infographic.jpg uploadt -->
+  <div class="bg-slide" style="background: #0d1f2d;"></div>
+  <!-- 4: PEM machine -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto3.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 5: video scene donker -->
+  <div class="bg-slide" style="background: #0a1520;"></div>
+  <!-- 6: opslag waterstof -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto4.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 7: transport -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto5.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 8: eindgebruik -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto6.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 9: efficiëntie -->
+  <div class="bg-slide" style="background-image: url('Foto/Foto7.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- 10: einde -->
   <div class="bg-slide" style="background: #111;"></div>
 </div>
 
 <div id="story">
 
-  <section class="scene" data-type="info" data-index="0">
+  <section class="scene" data-type="info" data-index="0" data-bg="0">
     <div class="textbox">
       Groene waterstof is waterstof dat volledig klimaatneutraal wordt geproduceerd. De naam "groen" verwijst niet naar de kleur, maar naar de herkomst van de energie: uitsluitend zon, wind of andere duurzame bronnen. Het is daarmee de schoonste vorm van waterstof die bestaat.
     </div>
   </section>
 
-  <section class="scene right" data-type="info" data-index="1">
+  <section class="scene right" data-type="info" data-index="1" data-bg="1">
     <div class="textbox">
       Alles begint bij hernieuwbare elektriciteit. Zonnepanelen en windturbines wekken stroom op zonder CO₂-uitstoot. Die stroom is de enige brandstof die nodig is voor het productieproces. Hoe groener het elektriciteitsnet, hoe groener de waterstof die eruit voortkomt.
     </div>
   </section>
 
-  <section class="scene" data-type="info" data-index="2">
+  <section class="scene" data-type="info" data-index="2" data-bg="2">
     <div class="textbox">
       Die groene stroom gaat naar een elektrolyser. Dit apparaat voert een elektrische stroom door water — H₂O. Daardoor worden de moleculen gesplitst: de waterstofatomen lossen los van de zuurstofatomen. Dit proces heet elektrolyse en is de kern van de gehele productieketen.
     </div>
   </section>
 
-  <section class="scene right" data-type="info" data-index="3">
-    <div class="textbox">
-      Er zijn twee veelgebruikte typen elektrolysers. De alkalische elektrolyser werkt al decennia lang en is bewezen technologie. De PEM-elektrolyser — Proton Exchange Membrane — is nieuwer, compacter en reageert sneller op wisselende stroomlevering, wat hem ideaal maakt voor gebruik met zonne- en windenergie.
+  <!-- TUSSENSLIDE: infographic elektrolyse -->
+  <!-- Achtergrond: voeg toe als bg-slide index 3, bv. url('Foto/Infographic.jpg') -->
+  <section class="scene" data-type="infographic" data-bg="3">
+    <div class="infographic-label">
+      <span>Infographic: zo werkt elektrolyse</span>
+      <p class="infographic-placeholder">[ upload Foto/Infographic.jpg als achtergrond van bg-slide index 3 ]</p>
     </div>
   </section>
 
-  <section class="scene" data-type="info" data-index="4">
+  <section class="scene right" data-type="info" data-index="3" data-bg="4">
     <div class="textbox">
-      Aan de minpool van de elektrolyser — de kathode — komen de waterstofmoleculen vrij als gas: H₂. Aan de pluspool — de anode — ontstaat zuurstof: O₂. De twee gassen worden direct gescheiden gehouden door een membraan of diafragma. Het zuurstof wordt geloosd of hergebruikt; het waterstof gaat verder de keten in.
+      Er zijn twee veelgebruikte typen elektrolysers. De alkalische elektrolyser werkt al decennia lang en is bewezen technologie. De PEM-elektrolyser — Proton Exchange <span class="begrip" data-begrip="membraan">Membraan</span> — is nieuwer, compacter en reageert sneller op wisselende stroomlevering, wat hem ideaal maakt voor gebruik met zonne- en windenergie.
     </div>
   </section>
 
-  <section class="scene right" data-type="info" data-index="5">
+  <!-- VIDEO SCENE — video vaagt in naarmate gebruiker scrollt -->
+  <!-- Upload video als Video/elektrolyse.mp4 -->
+  <section class="scene has-video" data-type="info" data-index="4" data-bg="5">
+    <div class="video-container">
+      <video muted loop playsinline>
+        <source src="Video/elektrolyse.mp4" type="video/mp4">
+      </video>
+      <div class="video-placeholder">[ upload Video/elektrolyse.mp4 ]</div>
+    </div>
     <div class="textbox">
-      Waterstofgas heeft in zijn normale toestand een zeer lage dichtheid. Om het praktisch op te slaan en te transporteren, wordt het samengeperst tot hoge druk — doorgaans 350 tot 700 bar — of afgekoeld tot vloeibaar waterstof bij min 253 graden Celsius. Beide methoden vereisen extra energie, wat de efficiëntie van het totale proces beïnvloedt.
+      Aan de <span class="begrip" data-begrip="minpool">minpool</span> van de elektrolyser — de kathode — komen de waterstofmoleculen vrij als gas: H₂. Aan de <span class="begrip" data-begrip="pluspool">pluspool</span> — de anode — ontstaat zuurstof: O₂. De twee gassen worden direct gescheiden gehouden door een membraan of <span class="begrip" data-begrip="diafragma">diafragma</span>. Het zuurstof wordt geloosd of hergebruikt; het waterstof gaat verder de keten in.
     </div>
   </section>
 
-  <section class="scene" data-type="info" data-index="6">
+  <section class="scene" data-type="info" data-index="5" data-bg="6">
+    <div class="textbox">
+      Waterstofgas heeft in zijn normale toestand een zeer lage dichtheid. Om het praktisch op te slaan en te transporteren, wordt het samengeperst tot hoge druk — doorgaans 350 tot 700 bar — of afgekoeld tot vloeibaar waterstof bij min 253 graden Celsius. <span class="begrip" data-begrip="efficientie_claim">Beide methoden vereisen extra energie, wat de efficiëntie van het totale proces beïnvloedt.</span>
+    </div>
+  </section>
+
+  <section class="scene right" data-type="info" data-index="6" data-bg="7">
     <div class="textbox">
       Vanuit de opslaglocatie wordt de waterstof getransporteerd naar de eindgebruiker. Dit kan via speciaal aangepaste leidingnetwerken, via vrachtauto's met hoge-druk tanks, of via schepen als vloeibaar waterstof of ammoniak. Nederland werkt aan een landelijk waterstofpijpleidingnetwerk dat bestaande aardgasleidingen hergebruikt.
     </div>
   </section>
 
-  <section class="scene right" data-type="info" data-index="7">
+  <section class="scene" data-type="info" data-index="7" data-bg="8">
     <div class="textbox">
       Op de bestemming aangekomen, kan groene waterstof op meerdere manieren worden ingezet. In een brandstofcel — zoals in een waterstofauto of -bus — reageert het opnieuw met zuurstof uit de lucht om elektriciteit op te wekken. Daarbij komt alleen waterdamp vrij. In de industrie vervangt het fossiele grondstoffen bij de productie van staal, meststoffen en chemicaliën.
     </div>
   </section>
 
-  <section class="scene" data-type="info" data-index="8">
+  <section class="scene right" data-type="info" data-index="8" data-bg="9">
     <div class="textbox">
       De gehele keten — van windmolen tot rijdende auto — kent nog energieverliezen bij elke stap. Vandaag ligt het totale rendement van groene waterstof rond de 25 tot 35 procent. Onderzoek richt zich op efficiëntere elektrolysers, betere opslagtechnieken en goedkopere materialen om groene waterstof sneller grootschalig en betaalbaar te maken.
     </div>
   </section>
 
-  <section class="scene" data-type="einde">
+  <section class="scene" data-type="einde" data-bg="10">
     <div class="einde-box">
       <h2>De toekomst is groen</h2>
       <p>Van zonnestraal tot brandstofcel — groene waterstof verbindt hernieuwbare energie met de sectoren die het hardst zijn te verduurzamen.</p>
