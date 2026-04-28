@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<!-- INTRO GORDIJN -->
+<div id="progress-bar"></div>
+
 <div id="landing-layer">
   <div class="landing-content">
     <h1>De Biblebelt</h1>
@@ -17,10 +18,9 @@
   </div>
 </div>
 
-<!-- JAARTAL -->
 <div id="year-display">1500</div>
+<div id="nav-dots"></div>
 
-<!-- VASTE ACHTERGRONDEN -->
 <div id="backgrounds">
   <div class="bg-slide active" style="background: #111;"></div>
   <div class="bg-slide" style="background-image: url('Foto/Foto1.jpg'); background-size: cover; background-position: center;"></div>
@@ -33,58 +33,113 @@
   <div class="bg-slide" style="background-image: url('Foto/Foto8.jpg'); background-size: cover; background-position: center;"></div>
 </div>
 
-<!-- SCROLLBARE CONTENT -->
 <div id="story">
 
-  <section class="scene" data-index="0" data-year="1500">
+  <section class="scene" data-type="info" data-index="0" data-year="1500">
     <div class="textbox">
       De Biblebelt in Nederland is geleidelijk ontstaan door een reeks religieuze en maatschappelijke ontwikkelingen vanaf de zestiende eeuw, waarbij bepaalde regio's zich ontwikkelden tot gebieden waar orthodox-protestantse tradities sterk bleven bestaan.
     </div>
   </section>
 
-  <section class="scene right" data-index="1" data-year="1517">
+  <section class="scene" data-type="quote" data-year="1500">
+    <div class="quote-box">
+      <blockquote>"In den beginne was het Woord, en het Woord was bij God."</blockquote>
+      <cite>— Johannes 1:1</cite>
+    </div>
+  </section>
+
+  <section class="scene right" data-type="info" data-index="1" data-year="1517">
     <div class="textbox">
       In 1517, met het begin van de Reformatie in Europa, brak het protestantisme door in de Nederlanden. Deze beweging zorgde ervoor dat steeds meer gelovigen zich losmaakten van de katholieke kerk en zich gingen richten op een strikte lezing van de Bijbel, wat de basis legde voor latere gereformeerde gemeenschappen.
     </div>
   </section>
 
-  <section class="scene" data-index="2" data-year="1517">
+  <section class="scene" data-type="quote" data-year="1517">
+    <div class="quote-box">
+      <blockquote>"Want door genade zijt gij zalig geworden, door het geloof."</blockquote>
+      <cite>— Efeziërs 2:8</cite>
+    </div>
+  </section>
+
+  <section class="scene" data-type="info" data-index="2" data-year="1517">
     <div class="textbox">
       In deze periode verspreidde het calvinisme zich snel in de Lage Landen, waarbij gelovigen in toenemende mate een sobere en strenge vorm van geloof aanhingen. Dit zorgde voor een duidelijke religieuze scheiding tussen verschillende regio's en bevolkingsgroepen.
     </div>
   </section>
 
-  <section class="scene right" data-index="3" data-year="1572">
+  <section class="scene" data-type="quote" data-year="1517">
+    <div class="quote-box">
+      <blockquote>"Uw woord is een lamp voor mijn voet en een licht op mijn pad."</blockquote>
+      <cite>— Psalm 119:105</cite>
+    </div>
+  </section>
+
+  <section class="scene right" data-type="info" data-index="3" data-year="1572">
     <div class="textbox">
       Tijdens de Tachtigjarige Oorlog werd het calvinisme steeds dominanter in de noordelijke Nederlanden na de inname van Den Briel. De Nederlandse Hervormde Kerk werd de belangrijkste kerk in de Republiek, maar regionale verschillen in geloofsbeleving bleven bestaan en werden zelfs sterker.
     </div>
   </section>
 
-  <section class="scene" data-index="4" data-year="1618">
+  <section class="scene" data-type="quote" data-year="1572">
+    <div class="quote-box">
+      <blockquote>"Wees sterk en moedig. Wees niet bevreesd en word niet verschrikt."</blockquote>
+      <cite>— Jozua 1:9</cite>
+    </div>
+  </section>
+
+  <section class="scene" data-type="info" data-index="4" data-year="1618">
     <div class="textbox">
       De Synode van Dordrecht bevestigde de orthodoxe calvinistische leer binnen de kerk en stelde strikte geloofsregels op. Dit zorgde ervoor dat de officiële kerk nauwer werd verbonden met een strikte theologische richting, wat later invloed had op orthodoxe afscheidingsbewegingen.
     </div>
   </section>
 
-  <section class="scene right" data-index="5" data-year="1834">
+  <section class="scene" data-type="quote" data-year="1618">
+    <div class="quote-box">
+      <blockquote>"De gehele Schrift is van God ingegeven en is nuttig tot lering."</blockquote>
+      <cite>— 2 Timotheüs 3:16</cite>
+    </div>
+  </section>
+
+  <section class="scene right" data-type="info" data-index="5" data-year="1834">
     <div class="textbox">
       De Afscheiding vond plaats, waarbij groepen zich losmaakten van de Nederlandse Hervormde Kerk omdat zij vonden dat deze te vrijzinnig werd. Deze groepen vormden eigen kerken en legden sterk de nadruk op een strikte, bijbelgetrouwe levenswijze, wat belangrijk werd voor de latere Biblebelt.
     </div>
   </section>
 
-  <section class="scene" data-index="6" data-year="1886">
+  <section class="scene" data-type="quote" data-year="1834">
+    <div class="quote-box">
+      <blockquote>"Wij moeten Gode meer gehoorzamen dan de mensen."</blockquote>
+      <cite>— Handelingen 5:29</cite>
+    </div>
+  </section>
+
+  <section class="scene" data-type="info" data-index="6" data-year="1886">
     <div class="textbox">
       De Doleantie zorgde opnieuw voor een scheuring binnen de Hervormde Kerk. Hierbij speelde de theoloog en politicus Abraham Kuyper een grote rol in het organiseren van orthodox-protestantse groepen die zich opnieuw afzetten tegen modernisering binnen de kerk.
     </div>
   </section>
 
-  <section class="scene right" data-index="7" data-year="1920">
+  <section class="scene" data-type="quote" data-year="1886">
+    <div class="quote-box">
+      <blockquote>"Vertrouw op de HEERE met geheel uw hart en steun op uw eigen inzicht niet."</blockquote>
+      <cite>— Spreuken 3:5</cite>
+    </div>
+  </section>
+
+  <section class="scene right" data-type="info" data-index="7" data-year="1920">
     <div class="textbox">
       Tijdens de periode van verzuiling ontstonden in Nederland sterke religieuze en ideologische zuilen, waarbij ook de orthodox-protestantse gemeenschap haar eigen scholen, kranten en politieke partijen ontwikkelde. Hierdoor raakten deze gemeenschappen sterker van de rest van de samenleving gescheiden.
     </div>
   </section>
 
-  <section class="scene" data-index="8" data-year="1960">
+  <section class="scene" data-type="quote" data-year="1920">
+    <div class="quote-box">
+      <blockquote>"Maar ik en mijn huis, wij zullen de HEERE dienen."</blockquote>
+      <cite>— Jozua 24:15</cite>
+    </div>
+  </section>
+
+  <section class="scene" data-type="info" data-index="8" data-year="1960">
     <div class="textbox">
       Na de Tweede Wereldoorlog begon in Nederland een snelle ontkerkelijking, maar in de streng-protestantse regio's bleef het kerkelijk en traditioneel leven sterk aanwezig. Hierdoor werden deze gebieden steeds duidelijker herkenbaar als een aparte religieuze strook, die later de Biblebelt werd genoemd.
     </div>
